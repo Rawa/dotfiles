@@ -1,0 +1,105 @@
+--[[
+                                      
+     Multicolor Awesome WM config 2.0 
+     github.com/copycat-killer        
+                                      
+--]]
+
+
+theme                               = {}
+
+theme.confdir                       = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
+theme.wallpaper                     = theme.confdir .. "/wall.png"
+
+--theme.font                          = "Terminus 11"
+theme.font                          = "inconsolata 12"
+--theme.taglist_font                =
+theme.menu_bg_normal                = "#000000"
+theme.menu_bg_focus                 = "#000000"
+theme.bg_normal                     = "#212121"
+theme.bg_focus                      = "#424242"
+theme.bg_urgent                     = "#f57f17"
+theme.fg_normal                     = "#aaaaaa"
+theme.fg_focus                      = "#f57f17"
+theme.fg_urgent                     = "#000000"
+theme.fg_minimize                   = "#ffffff"
+theme.fg_black                      = "#424242"
+theme.fg_red                        = "#ef5350"
+theme.fg_green                      = "#66bb6a"
+theme.fg_yellow                     = "#ffee58"
+theme.fg_dark_yellow                = "#f57f17"
+theme.fg_blue                       = "#42a5f5"
+theme.fg_magenta                    = "#ab47bc"
+theme.fg_cyan                       = "#26c6da"
+theme.fg_white                      = "#fafafa"
+theme.fg_blu                        = "#8ebdde"
+theme.border_width                  = "1"
+theme.border_normal                 = "#1c2022"
+theme.border_focus                  = "#606060"
+theme.border_marked                 = "#3ca4d8"
+theme.menu_width                    = "210"
+theme.menu_border_width             = "0"
+theme.menu_fg_normal                = "#aaaaaa"
+theme.menu_fg_focus                 = "#f57f17"
+theme.menu_bg_normal                = "#050505dd"
+theme.menu_bg_focus                 = "#050505dd"
+
+theme.menu_submenu_icon             = theme.confdir .. "/icons/submenu.png"
+theme.widget_temp                   = theme.confdir .. "/icons/temp.png"
+theme.widget_uptime                 = theme.confdir .. "/icons/ac.png"
+theme.widget_cpu                    = theme.confdir .. "/icons/cpu.png"
+theme.widget_weather                = theme.confdir .. "/icons/dish.png"
+theme.widget_fs                     = theme.confdir .. "/icons/fs.png"
+theme.widget_mem                    = theme.confdir .. "/icons/mem.png"
+theme.widget_fs                     = theme.confdir .. "/icons/fs.png"
+theme.widget_note                   = theme.confdir .. "/icons/note.png"
+theme.widget_note_on                = theme.confdir .. "/icons/note_on.png"
+theme.widget_netdown                = theme.confdir .. "/icons/net_down.png"
+theme.widget_netup                  = theme.confdir .. "/icons/net_up.png"
+theme.widget_mail                   = theme.confdir .. "/icons/mail.png"
+theme.widget_batt_unk               = theme.confdir .. "/icons/bat_unk.png"
+theme.widget_batt_low               = theme.confdir .. "/icons/bat_low.png"
+theme.widget_batt_20                = theme.confdir .. "/icons/bat_20.png"
+theme.widget_batt_30                = theme.confdir .. "/icons/bat_30.png"
+theme.widget_batt_50                = theme.confdir .. "/icons/bat_50.png"
+theme.widget_batt_60                = theme.confdir .. "/icons/bat_60.png"
+theme.widget_batt_80                = theme.confdir .. "/icons/bat_80.png"
+theme.widget_batt_90                = theme.confdir .. "/icons/bat_90.png"
+theme.widget_batt_100               = theme.confdir .. "/icons/bat_100.png"
+theme.widget_batt_20_c              = theme.confdir .. "/icons/bat_20_c.png"
+theme.widget_batt_30_c              = theme.confdir .. "/icons/bat_30_c.png"
+theme.widget_batt_50_c              = theme.confdir .. "/icons/bat_50_c.png"
+theme.widget_batt_60_c              = theme.confdir .. "/icons/bat_60_c.png"
+theme.widget_batt_80_c              = theme.confdir .. "/icons/bat_80_c.png"
+theme.widget_batt_90_c              = theme.confdir .. "/icons/bat_90_c.png"
+theme.widget_batt_100_c             = theme.confdir .. "/icons/bat_100_c.png"
+theme.widget_clock                  = theme.confdir .. "/icons/clock.png"
+theme.widget_vol_mute               = theme.confdir .. "/icons/spkr_mute.png"
+theme.widget_vol_low                = theme.confdir .. "/icons/spkr_low.png"
+theme.widget_vol_mid                = theme.confdir .. "/icons/spkr_mid.png"
+theme.widget_vol_high               = theme.confdir .. "/icons/spkr_high.png"
+
+theme.taglist_squares_sel           = theme.confdir .. "/icons/square_a.png"
+theme.taglist_squares_unsel         = theme.confdir .. "/icons/square_b.png"
+
+theme.tasklist_disable_icon         = true
+theme.tasklist_floating             = ""
+theme.tasklist_maximized_horizontal = ""
+theme.tasklist_maximized_vertical   = ""
+
+theme.layout_tile                   = theme.confdir .. "/icons/tile.png"
+theme.layout_tilegaps               = theme.confdir .. "/icons/tilegaps.png"
+theme.layout_tileleft               = theme.confdir .. "/icons/tileleft.png"
+theme.layout_tilebottom             = theme.confdir .. "/icons/tilebottom.png"
+theme.layout_tiletop                = theme.confdir .. "/icons/tiletop.png"
+theme.layout_fairv                  = theme.confdir .. "/icons/fairv.png"
+theme.layout_fairh                  = theme.confdir .. "/icons/fairh.png"
+theme.layout_spiral                 = theme.confdir .. "/icons/spiral.png"
+theme.layout_dwindle                = theme.confdir .. "/icons/dwindle.png"
+theme.layout_max                    = theme.confdir .. "/icons/max.png"
+theme.layout_fullscreen             = theme.confdir .. "/icons/fullscreen.png"
+theme.layout_magnifier              = theme.confdir .. "/icons/magnifier.png"
+theme.layout_floating               = theme.confdir .. "/icons/floating.png"
+
+
+return theme
