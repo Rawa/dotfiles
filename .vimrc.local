@@ -1,0 +1,8 @@
+au! BufRead,BufNewFile *.repy  setfiletype repy
+
+let g:airline_powerline_fonts=1
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
