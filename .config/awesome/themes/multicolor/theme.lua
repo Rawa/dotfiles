@@ -12,7 +12,7 @@ theme.confdir                       = os.getenv("HOME") .. "/.config/awesome/the
 theme.wallpaper                     = theme.confdir .. "/wall.png"
 
 --theme.font                          = "Terminus 11"
-theme.font                          = "inconsolata 12"
+theme.font                          = "inconsolata 13"
 --theme.taglist_font                =
 theme.menu_bg_normal                = "#000000"
 theme.menu_bg_focus                 = "#000000"
