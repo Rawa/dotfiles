@@ -17,12 +17,12 @@ fi
 
 
 ### synclient
-synclient TapButton2=3
-synclient ClickFinger3=2
-synclient TapButton1=1
-synclient HorizTwoFingerScroll=1
-synclient HorizScrollDelta=-243
-synclient PalmDetect=1
+#synclient TapButton2=3
+#synclient ClickFinger3=2
+#synclient TapButton1=1
+#synclient HorizTwoFingerScroll=1
+#synclient HorizScrollDelta=-243
+#synclient PalmDetect=1
 
 source /etc/X11/xinit/xinitrc.d/30-dbus
 
@@ -39,11 +39,23 @@ urxvt &
 urxvt &
 urxvt &
 
+# Make Capslock act as excape
 setxkbmap se -option caps:escape &
+
+# Set keyboard repeat rate to 230
 xset r rate 230
+
+# Start nm-applet
 nm-applet &
+
+# Start pa applet
 pa-applet &
+
+# Random wallpaper script
 sh ~/.wallpaper.sh &
+
+# Start xSwipe
 perl ~/.xSwipe-master/xSwipe.pl &
 
+# Start awesome
 exec awesome
