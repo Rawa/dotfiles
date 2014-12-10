@@ -51,7 +51,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$PATH:"/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"i
+export PATH=$PATH:"/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 export PATH=$PATH:"$HOME/Software/android-studio/bin/"
 export PATH=$PATH:"$HOME/Software/android-studio/sdk/platform-tools/"
 export PATH=$PATH:"$HOME/.bin/"
