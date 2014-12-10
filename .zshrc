@@ -14,7 +14,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=3
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -52,8 +52,9 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH=$PATH:"/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"i
-export PATH=$PATH:"/home/rawa/Software/android-studio/bin/"
-export PATH=$PATH:"/home/rawa/Software/android-studio/sdk/platform-tools/"
+export PATH=$PATH:"$HOME/Software/android-studio/bin/"
+export PATH=$PATH:"$HOME/Software/android-studio/sdk/platform-tools/"
+export PATH=$PATH:"$HOME/.bin/"
 export EDITOR="vim"
 export BROWSER="chromium"
 export JAVA_HOME="/usr/lib/jvm/java-default-runtime"
