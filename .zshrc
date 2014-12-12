@@ -58,6 +58,7 @@ export PATH=$PATH:"$HOME/.bin/"
 export EDITOR="vim"
 export BROWSER="chromium"
 export JAVA_HOME="/usr/lib/jvm/java-default-runtime"
+export HASTE_SERVER="http://paste.davidgoransson.se"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
