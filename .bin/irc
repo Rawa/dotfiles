@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+perl -E ' print "\e[?1005h\e[?1002h" '
+mosh irc
