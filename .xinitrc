@@ -54,6 +54,9 @@ pa-applet &
 # Random wallpaper script
 sh ~/.wallpaper.sh &
 
+# Start f.lux
+xflux -l 62 -g 15 &
+
 # Start xSwipe
 perl ~/.xSwipe-master/xSwipe.pl &
 
