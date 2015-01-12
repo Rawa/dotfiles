@@ -48,7 +48,7 @@ beautiful.init("/home/rawa/.config/awesome/themes/multicolor/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
-browser = "chromium"
+browser = "google-chrome-stable"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -124,7 +124,7 @@ shifty.config.apps = {
     },
     {
         match = {
-            "Chromium",
+            "Google*",
         },
         tag = "www",
     },
