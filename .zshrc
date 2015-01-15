@@ -56,7 +56,7 @@ export PATH=$PATH:"$HOME/Software/android-studio/bin/"
 export PATH=$PATH:"$HOME/Software/android-studio/sdk/platform-tools/"
 export PATH=$PATH:"$HOME/.bin/"
 export EDITOR="vim"
-export BROWSER="chromium"
+export BROWSER="google-chrome-stable"
 export JAVA_HOME="/usr/lib/jvm/java-default-runtime"
 export HASTE_SERVER="http://paste.davidgoransson.se"
 
