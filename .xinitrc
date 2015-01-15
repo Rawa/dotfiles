@@ -33,7 +33,7 @@ export GPG_AGENT_INFO
 
 ### Autostart ###
 spotify &
-chromium &
+google-chrome-stable &
 sh ~/.bin/irc-start.sh &
 urxvt &
 urxvt &
