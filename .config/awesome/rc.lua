@@ -125,6 +125,7 @@ shifty.config.apps = {
     {
         match = {
             "Google*",
+            "Chromium*",
         },
         tag = "www",
     },
@@ -582,6 +583,8 @@ globalkeys = awful.util.table.join(
     awful.key({                   }, "XF86AudioMute",         function () awful.util.spawn("amixer set Master 1+ toggle")  end),
     awful.key({                   }, "XF86AudioLowerVolume",  function () awful.util.spawn("amixer -q sset Master 1%- -M") end),
     awful.key({                   }, "XF86AudioRaiseVolume",  function () awful.util.spawn("amixer -q sset Master 1%+ -M") end),
+
+    awful.key({ modkey, "Control" }, "l",  function () awful.util.spawn("slimlock") end),
 
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),

@@ -46,7 +46,7 @@ export HASTE_SERVER="http://paste.davidgoransson.se"
 ### Autostart ###
 spotify &
 chromium-dev --force-device-scale-factor=1.2 &
-sh ~/.bin/irc-start.sh &
+sh ~/.bin/irkk &
 urxvt &
 urxvt &
 urxvt &
