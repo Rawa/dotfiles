@@ -132,8 +132,7 @@ shifty.config.apps = {
     {
         match = {
             "subl3",
-            "jetbrains-android-studio",
-            "sun-awt-X11-XFramePeer",
+            "Android Studio*",
         },
         tag = "code",
     },
