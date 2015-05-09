@@ -31,9 +31,21 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh
 export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 
+# Enviromental variables
+export GOPATH=~/Code/go
+export PATH=$PATH:"/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH=$PATH:"$HOME/Software/android-studio/bin/"
+export PATH=$PATH:"$HOME/Software/android-studio/sdk/platform-tools/"
+export PATH=$PATH:"$HOME/.bin/"
+export PATH=$PATH:"$GOPATH/bin"
+export EDITOR="vim"
+export BROWSER="chromium"
+export JAVA_HOME="/usr/lib/jvm/java-default-runtime"
+export HASTE_SERVER="http://paste.davidgoransson.se"
+
 ### Autostart ###
 spotify &
-google-chrome-stable &
+chromium-dev --force-device-scale-factor=1.2 &
 sh ~/.bin/irc-start.sh &
 urxvt &
 urxvt &
@@ -59,6 +71,9 @@ xflux -l 62 -g 15 &
 
 # Start xSwipe
 perl ~/.xSwipe-master/xSwipe.pl &
+
+# Merge Xresources
+xrdb -merge ~/.Xresources
 
 # Start awesome
 exec awesome

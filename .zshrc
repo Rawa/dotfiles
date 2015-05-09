@@ -45,20 +45,12 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux fasd colored-man)
+plugins=(git archlinux fasd colored-man sudo)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$PATH:"/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
-export PATH=$PATH:"$HOME/Software/android-studio/bin/"
-export PATH=$PATH:"$HOME/Software/android-studio/sdk/platform-tools/"
-export PATH=$PATH:"$HOME/.bin/"
-export EDITOR="vim"
-export BROWSER="google-chrome-stable"
-export JAVA_HOME="/usr/lib/jvm/java-default-runtime"
-export HASTE_SERVER="http://paste.davidgoransson.se"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
