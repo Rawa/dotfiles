@@ -15,15 +15,15 @@ URxvt.shading:       10
 
 ! Fonts
 URxvt.allow_bold:           true
-!URxvt*font: xft:Monospace:pixelsize=16
-!URxvt*boldFont: xft:Monospace:style=bold:pixelsize=16
+!URxvt*font:                xft:Monospace:pixelsize=16
+!URxvt*boldFont:            xft:Monospace:style=bold:pixelsize=16
 URxvt*font:                 xft:Inconsolata\ for\ Powerline:style=Semibold:pixelsize=22:antialias=true:hinting=slight
 URxvt*boldFont:             xft:Inconsolata\ for\ Powerline:style=bold:pixelsize=22:antialias=true:hinting=slight
-!URxvt*font:                 xft:Inconsolata\ for\ Powerline
-!URxvt*boldFont:             xft:Inconsolata\ for\ Powerline
+!URxvt*font:                xft:Inconsolata\ for\ Powerline
+!URxvt*boldFont:            xft:Inconsolata\ for\ Powerline
 
 ! Fix font space
-URxvt*letterSpace: -1
+URxvt*letterSpace:          -1
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt

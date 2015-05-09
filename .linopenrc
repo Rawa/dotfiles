@@ -19,7 +19,8 @@ interm=vim
 # .png:sxiv
 # .mp4:mplayer
 # .txt:vim
-.pdf:$BROWSER
+.pdf:zathura
+#.pdf:$BROWSER
 .ppt:libreoffice
 .pptx:libreoffice
 .doc:libreoffice
