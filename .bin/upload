@@ -1,7 +1,12 @@
 #/usr/bin/env bash
-scp $@ srv:/data/upload
+
+#Url of the server
 url="http://upload.davidgoransson.se/"
 
+#Copy the files to the server
+scp $@ srv:/data/upload
+
+#Copy url to clipboard (direct link if single file)
 if [ "$#" -eq 1 ]; then
     echo $url$1 | xsel -ib
 else
