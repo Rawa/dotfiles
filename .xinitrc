@@ -38,7 +38,7 @@ export PATH=$PATH:"$HOME/.bin/"
 export PATH=$PATH:"$GOPATH/bin"
 export EDITOR="vim"
 export BROWSER="chromium"
-export JAVA_HOME="/usr/lib/jvm/java-default-runtime"
+export JAVA_HOME="/usr/lib/jvm/default-runtime/jre"
 export HASTE_SERVER="http://paste.davidgoransson.se"
 
 ### Autostart ###
