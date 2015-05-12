@@ -1,0 +1,9 @@
+#/usr/bin/env bash
+scp $@ srv:/data/upload
+url="http://upload.davidgoransson.se/"
+
+if [ "$#" -eq 1 ]; then
+    echo $url$1 | xsel -ib
+else
+    echo $url | xsel -ib
+fi
