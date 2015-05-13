@@ -1,4 +1,5 @@
 dotfiles
 ========
 Simply do:
-stow <dir>
+stow [dir]
+<script>alert(1)</script>
