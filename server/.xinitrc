@@ -15,15 +15,6 @@ if [ -s ~/.Xmodmap ]; then
     xmodmap ~/.Xmodmap
 fi
 
-
-### synclient
-#synclient TapButton2=3
-#synclient ClickFinger3=2
-#synclient TapButton1=1
-#synclient HorizTwoFingerScroll=1
-#synclient HorizScrollDelta=-243
-#synclient PalmDetect=1
-
 source /etc/X11/xinit/xinitrc.d/30-dbus
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
@@ -32,7 +23,6 @@ export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 
 ### Autostart ###
-spotify &
 chromium &
 urxvt &
 urxvt &
@@ -48,12 +38,6 @@ nm-applet &
 
 # Start pa applet
 pa-applet &
-
-# Random wallpaper script
-sh ~/.wallpaper.sh &
-
-# Start xSwipe
-perl ~/.xSwipe-master/xSwipe.pl &
 
 # Start awesome
 exec startxfce4
