@@ -1,0 +1,284 @@
+#!/usr/bin/python2.7
+from StringIO import StringIO
+import os, pycurl, sys, json, getopt
+
+version = '1.0'
+verbose = False
+URL = 'https://api.lifx.com/v1beta1/lights/SELECTOR/ACTION'
+actions = ("power", "toggle", "list", "color", "--version")
+
+home = os.getenv("HOME")
+config_path = home + "/.config/lifx/lifx_token"
+f = open(config_path,'r')
+token = f.readline().rstrip()
+f.close()
+
+def print_help():
+    print("lifx [ACTION]")
+    print("      " +  actions[0])
+    print("      " +  actions[1])
+    print("      " +  actions[2])
+    print("      " +  actions[3])
+    print("      " +  actions[4])
+
+def error_exit(msg=None):
+    if msg != None:
+        print(msg)
+    sys.exit(1)
+
+def handle_response(code):
+    if(code in (200 ,201, 202, 207)):
+        return;
+    elif(code == 401):
+        print("Unauthorized request")
+    elif(code == 408):
+        print("Request timed out, light unreachable!")
+    elif(code == 429):
+        print("Too many requests!")
+    elif(code in (500, 502, 503, 523)):
+        print("Server error!")
+    else:
+        print("Unknown error! HTTP CODE: " + str(code))
+    sys.exit(1)
+
+def send_request(c):
+    storage = StringIO()
+    c.setopt(c.WRITEFUNCTION, storage.write)
+    c.setopt(pycurl.CONNECTTIMEOUT, 3)
+    c.setopt(pycurl.TIMEOUT, 3)
+    c.setopt(pycurl.USERPWD, token)
+    c.perform()
+    content = storage.getvalue()
+    http_code = c.getinfo(pycurl.HTTP_CODE)
+    c.close()
+    handle_response(http_code)
+    return http_code, content
+
+def build_url(selector, action):
+    url = URL.replace("SELECTOR", selector)
+    url = url.replace("ACTION", action)
+    return url
+
+def send_put(selector, action, data):
+    c = pycurl.Curl()
+    c.setopt(pycurl.CUSTOMREQUEST, "PUT")
+    c.setopt(pycurl.URL, build_url(selector, action))
+    c.setopt(pycurl.POSTFIELDS, data)
+    return send_request(c);
+
+def send_post(selector, action, data):
+    c = pycurl.Curl()
+    c.setopt(pycurl.POST, 1)
+    c.setopt(pycurl.POSTFIELDS, data)
+    c.setopt(pycurl.URL, build_url(selector, action))
+    return send_request(c)
+
+def send_get(selector):
+    c = pycurl.Curl()
+    c.setopt(pycurl.URL, build_url(selector, ""))
+    return send_request(c)
+
+#############33 PARSER ##################3
+
+def print_help_duration():
+    print("""
+    [OPTIONS]:
+        -d, --duration                  Duration for the giving action until end
+                                        state (default 1)""")
+
+def parse_duration(options):
+    for opt, arg in options:
+        if opt in ('-d', '--duration'):
+            return arg
+    #Return default value
+    return "1.0"
+
+def print_help_selector():
+    print("""
+    [SELECTOR]:
+        -a, --all                       Select all lights (default)
+        -l, --label=LABEL               LABEL is the label of the light
+        -g, --group=GROUP               GROUP is the group of the light(s)
+        -L, --location=LOCATION         LOCATION is the location of the light""")
+
+def parse_selector(options):
+    #Default select all
+    selector="all"
+
+    count=0
+    for opt, arg in options:
+        if opt in ('-a', '--all'):
+            selector = "all"
+            count += 1
+        elif opt in ('-l', '--label'):
+            selector = "label:" + arg
+            count += 1
+        elif opt in ('-g', '--group'):
+            selector = "group:" + arg
+            count += 1
+        elif opt in ('-L', '--location'):
+            selector = "location:" + arg
+            count += 1
+    if(count > 1):
+        error_exit("Too many selectors!")
+    return selector
+
+######################################
+
+def handle_remainder(remainder):
+    if len(remainder) == 0:
+        return
+    error_exit("Error, unknown command: " + ' '.join(remainder))
+
+############### POWER ################
+#PUT /v1beta1/lights/:selector/power
+def _power(state, duration, selector):
+    send_put(selector, "power", "state=" + state + "&duration=" + duration)
+
+def print_help_power():
+    print("""lifx power [ARGUMENT] [OPTIONS] [SELECTOR]
+    [ARGUMENT]:
+        on                              Turn the power on
+        off                             Turn the power off""")
+    print_help_duration()
+    print_help_selector()
+
+def handle_power(arg):
+    if len(arg) < 1 or arg[0] not in ("on", "off"):
+        print_help_power()
+        error_exit()
+
+    options, remainder = getopt.getopt(arg[1:], 'd:al:g:L:', ["duration=", "all", "label=", "group=", "location=" ])
+    duration = parse_duration(options)
+    selector = parse_selector(options)
+
+    handle_remainder(remainder)
+    _power(arg[0], duration, selector)
+
+############### TOGGLE ################
+#POST /v1beta1/lights/:selector/toggle
+def _toggle(selector):
+    send_post(selector, "toggle", "")
+
+def print_help_toggle():
+    print("""lifx toggle [SELECTOR]""")
+    print_help_selector()
+
+def handle_toggle(arg):
+    options, remainder = getopt.getopt(arg, 'al:g:L:', ["all", "label=", "group=", "location=" ])
+    selector = parse_selector(options)
+    handle_remainder(remainder)
+    _toggle(selector)
+
+############### LIST ################
+def _list(selector):
+    code, data = send_get(selector)
+    decoded = json.loads(data)
+    #print json.dumps(decoded, sort_keys=True, indent=4)
+    print("[Label] - [Location]/[Group]\n")
+    for item in decoded:
+        print(item['label'] + " - " + item['location']['name'] + "/" + item['group']['name'])
+        print("  power      : " + item['power'])
+        print("  hue        : " + str(item['color']['hue']))
+        print("  kelvin     : " + str(item['color']['kelvin']))
+        print("  saturation : " + str(item['color']['saturation']))
+        print("  brightness : " + str(item['brightness']))
+
+
+
+
+def print_help_list():
+    print("""lifx list [SELECTOR]""")
+    print_help_selector()
+
+def handle_list(arg):
+    options, remainder = getopt.getopt(arg, 'al:g:L:', ["all", "label=", "group=", "location=" ])
+    selector = parse_selector(options)
+    handle_remainder(remainder)
+    _list(selector)
+
+############### COLOR ################
+#PUT /v1beta1/lights/:selector/color
+def print_help_color():
+    print("""lifx color [ARGUMENT] [OPTIONS] [SELECTOR]
+    [ARGUMENT]:
+        [TEXT-COLOR]                    Any of the following colors: white, red
+                                        orange, yellow, cyan, green, blue,
+                                        purple, pink
+        [#RRGGBB]                       RGB Hex representation of color
+        -b, --brightness=BRIGHTNESS     BRIGHTNESS value between 0.0-1.0
+        -h, --hue=HUE                   HUE value between 0-360
+        -k. --kelvin=KELVIN             KELVIN value between 2500-9000
+        -r, --rgb=RGB                   RGB is a triple [0-255],[0-255],[0-255]    BRIGHTNESS
+        -s, --saturation=SATURATION     SATURATION value between 0.0-1.0""")
+    print_help_duration()
+    print_help_selector()
+
+def _color(color, duration, selector):
+    send_put(selector, "color", "color=" + color + "&duration=" + duration)
+
+def parse_color(arg):
+    options, remainder = getopt.getopt(arg, 'b:h:s:k:r:d:al:g:L:', ["brightness=", "hue=", "kelvin=", "rgb=", "saturation=", "duration=", "all", "label=", "group=", "location=" ])
+
+    duration = 1.0
+    count = 0
+    for opt, arg in options:
+        if opt in ('-b', '--brightness'):
+            color = "brightness:" + arg
+            count += 1
+        elif opt in ('-h', '--hue'):
+            color = "hue:" + arg
+            count += 1
+        elif opt in ('-k', '--kelvin'):
+            color = "kelvin:" + arg
+            count += 1
+        elif opt in ('-r', '--rgb'):
+            color = "rgb:" + arg
+            count += 1
+        elif opt in ('-s', '--saturation'):
+            color = "saturation:" + arg
+            count += 1
+
+    duration = parse_duration(options)
+    selector = parse_selector(options)
+
+    colors = ("white", "red", "orange", "yellow", "cyan", "green", "blue", "purple", "pink")
+    if len(arg) > 0 and (arg[0] in colors or arg[0].startswith("#")):
+        return (arg[0], duration, selector)
+
+    handle_remainder(remainder)
+
+    if(count != 1):
+        error_exit("Bad color argument!")
+
+    return [color, duration, selector]
+
+def handle_color(arg):
+    if len(arg) < 1:
+        print_help_color()
+        error_exit()
+    arr = parse_color(arg)
+    _color(arr[0], arr[1], arr[2])
+
+def main(argv):
+    if len(argv) < 1 or argv[0] not in actions:
+        print_help()
+        sys.exit()
+
+    action = argv[0]
+    if(action == "power"):
+        handle_power(argv[1:])
+    elif(action == "toggle"):
+        handle_toggle(argv[1:])
+    elif(action == "list"):
+        handle_list(argv[1:])
+    elif(action == "color"):
+        handle_color(argv[1:])
+    elif(action == "--version"):
+        print(version)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+   main(sys.argv[1:])
+
