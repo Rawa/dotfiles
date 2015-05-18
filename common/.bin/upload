@@ -4,7 +4,7 @@ version="1.0"
 upload_path="/data/upload/"
 server="srv"
 #Url of the website (used for copying url to clipboard)
-url="http://upload.davidgoransson.se/"
+url="http://upload.davidgoransson.com/"
 
 function print_help {
     echo "Upload files to your remote server"

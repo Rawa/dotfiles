@@ -39,7 +39,7 @@ export PATH=$PATH:"$GOPATH/bin"
 export EDITOR="vim"
 export BROWSER="chromium"
 export JAVA_HOME="/usr/lib/jvm/default-runtime/jre"
-export HASTE_SERVER="http://paste.davidgoransson.se"
+export HASTE_SERVER="http://paste.davidgoransson.com"
 
 ### Autostart ###
 spotify &
