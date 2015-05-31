@@ -1,4 +1,99 @@
-Xft.dpi: 120
+URxvt.termName: rxvt-256color
+Xcursor.size: 10
+
+URxvt*foreground: white
+URxvt*background: rgba:0111/0111/0200/D200
+
+URxvt.transparent:   true
+URxvt.shading:       10
+
+!-------------------------------------------------------------------------------
+! URxvt settings
+! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
+! More info at:
+! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
+!-------------------------------------------------------------------------------
+
+! Fonts
+!URxvt.allow_bold:           true
+!URxvt*font:                xft:Monospace:pixelsize=17
+!URxvt*boldFont:            xft:Monospace:style=bold:pixelsize=17
+URxvt*font:                 xft:Inconsolata for Powerline:style=Medium:pixelsize=23:antialias=true:hinting=slight, xft:PowerlineSymbols
+URxvt*boldFont:             xft:Inconsolata for Powerline:style=Medium:pixelsize=23:antialias=true:hinting=slight, xft:PowerlineSymbols
+!URxvt*font:                 xft:Inconsolata\ for\ Powerline:pixelsize=22
+!URxvt*boldFont:             xft:Inconsolata\ for\ Powerline:pixelsize=22
+!URxvt*font:                 xft:Inconsolata for Powerline:style=Semibold:pixelsize=21:antialias=true:hinting=slight,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+!URxvt*boldFont:             xft:Inconsolata for Powerline:style=bold:pixelsize=21:antialias=true:hinting=slight,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+!URxvt*font:                xft:Ubuntu Mono derivative Powerline
+!URxvt*boldFont:            xft:Ubuntu Mono derivative Powerline
+
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+! Fix font space
+URxvt*letterSpace:          -1
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+! Perl extensions
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          xdg-open
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+URxvt.url-select.launcher:  xdg-open
+URxvt.url-select.underline: true
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+URxvt.keysym.M-c:           perl:clipboard:copy
+URxvt.keysym.M-v:           perl:clipboard:paste
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank:         true
+
+URxvt.urgentOnBell:         true
+ 
+!! black dark/light
+*color0: #212121
+*color8: #424242
+ 
+!! red dark/light
+*color1: #b71c1c
+*color9: #ef5350
+ 
+!! green dark/light
+*color2: #1b5e20
+*color10: #66bb6a
+ 
+!! yellow dark/light
+*color3: #f57f17
+*color11: #ffee58
+ 
+!! blue dark/light
+*color4: #0d47a1
+*color12: #42a5f5
+
+!! magenta dark/light
+*color5: #4a148c
+*color13: #ab47bc
+ 
+!! cyan dark/light
+*color6: #006064
+*color14: #26c6da
+ 
+!! white dark/light
+*color7: #f5f5f5
+*color15: #fafafa
+
+!Display settings
+
+Xft.dpi: 127
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull

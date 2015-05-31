@@ -15,6 +15,7 @@ if [ -s ~/.Xmodmap ]; then
     xmodmap ~/.Xmodmap
 fi
 
+[[ -f ~/.Xresources  ]] && xrdb -merge ~/.Xresources
 
 ### synclient
 #synclient TapButton2=3
@@ -24,7 +25,7 @@ fi
 #synclient HorizScrollDelta=-243
 #synclient PalmDetect=1
 
-source /etc/X11/xinit/xinitrc.d/30-dbus
+#source /etc/X11/xinit/xinitrc.d/30-dbus
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 # You probably need to do this too:
@@ -63,9 +64,6 @@ pa-applet &
 
 # Random wallpaper script
 sh ~/.wallpaper.sh &
-
-# Start f.lux
-xflux -l 62 -g 15 &
 
 # Start xSwipe
 perl ~/.xSwipe-master/xSwipe.pl &
