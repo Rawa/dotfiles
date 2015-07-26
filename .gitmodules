@@ -1,0 +1,3 @@
+[submodule "modules/lifx_cli"]
+	path = modules/lifx_cli
+	url = https://github.com/Rawa/lifx_cli
