@@ -47,6 +47,9 @@ fi
 
 #Copy the files to the server
 scp $@ $server:$upload_path
+for file; do
+    ssh $server chmod 0644 $upload_path$(basename $file)
+done
 
 #Copy url to clipboard (direct link if single file)
 if [ "$#" -eq 1 ]; then
