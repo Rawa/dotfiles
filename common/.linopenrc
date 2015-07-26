@@ -25,6 +25,7 @@ interm=vim
 .pptx:libreoffice
 .doc:libreoffice
 .docx:libreoffice
+.xlsx:libreoffice
 
 # 2. Mime type
 # image/png:sxiv

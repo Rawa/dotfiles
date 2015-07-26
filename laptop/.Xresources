@@ -1,3 +1,4 @@
+URxvt.termName: rxvt-256color
 Xcursor.size: 10
 
 URxvt*foreground: white
@@ -14,14 +15,22 @@ URxvt.shading:       10
 !-------------------------------------------------------------------------------
 
 ! Fonts
-URxvt.allow_bold:           true
-!URxvt*font:                xft:Monospace:pixelsize=16
-!URxvt*boldFont:            xft:Monospace:style=bold:pixelsize=16
-URxvt*font:                 xft:Inconsolata\ for\ Powerline:style=Semibold:pixelsize=22:antialias=true:hinting=slight
-URxvt*boldFont:             xft:Inconsolata\ for\ Powerline:style=bold:pixelsize=22:antialias=true:hinting=slight
-!URxvt*font:                xft:Inconsolata\ for\ Powerline
-!URxvt*boldFont:            xft:Inconsolata\ for\ Powerline
+!URxvt.allow_bold:           true
+!URxvt*font:                xft:Monospace:pixelsize=17
+!URxvt*boldFont:            xft:Monospace:style=bold:pixelsize=17
+URxvt*font:                 xft:Inconsolata for Powerline:style=Medium:pixelsize=23:antialias=true:hinting=slight, xft:PowerlineSymbols
+URxvt*boldFont:             xft:Inconsolata for Powerline:style=Medium:pixelsize=23:antialias=true:hinting=slight, xft:PowerlineSymbols
+!URxvt*font:                 xft:Inconsolata\ for\ Powerline:pixelsize=22
+!URxvt*boldFont:             xft:Inconsolata\ for\ Powerline:pixelsize=22
+!URxvt*font:                 xft:Inconsolata for Powerline:style=Semibold:pixelsize=21:antialias=true:hinting=slight,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+!URxvt*boldFont:             xft:Inconsolata for Powerline:style=bold:pixelsize=21:antialias=true:hinting=slight,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+!URxvt*font:                xft:Ubuntu Mono derivative Powerline
+!URxvt*boldFont:            xft:Ubuntu Mono derivative Powerline
 
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
 ! Fix font space
 URxvt*letterSpace:          -1
 
@@ -81,3 +90,13 @@ URxvt.urgentOnBell:         true
 !! white dark/light
 *color7: #f5f5f5
 *color15: #fafafa
+
+!Display settings
+
+Xft.dpi: 127
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb

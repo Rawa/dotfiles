@@ -15,6 +15,7 @@ if [ -s ~/.Xmodmap ]; then
     xmodmap ~/.Xmodmap
 fi
 
+[[ -f ~/.Xresources  ]] && xrdb -merge ~/.Xresources
 
 ### synclient
 #synclient TapButton2=3
@@ -24,7 +25,7 @@ fi
 #synclient HorizScrollDelta=-243
 #synclient PalmDetect=1
 
-source /etc/X11/xinit/xinitrc.d/30-dbus
+#source /etc/X11/xinit/xinitrc.d/30-dbus
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 # You probably need to do this too:
@@ -39,7 +40,7 @@ export PATH=$PATH:"$GOPATH/bin"
 export EDITOR="vim"
 export BROWSER="chromium"
 export JAVA_HOME="/usr/lib/jvm/default-runtime/jre"
-export HASTE_SERVER="http://paste.davidgoransson.se"
+export HASTE_SERVER="http://paste.davidgoransson.com"
 
 ### Autostart ###
 spotify &
@@ -47,7 +48,7 @@ chromium &
 sh ~/.bin/irkk &
 urxvt &
 urxvt &
-urxvt &
+urxvt -e zsh -c "task next && zsh" &
 
 # Make Capslock act as excape
 setxkbmap se -option caps:escape &
@@ -64,8 +65,10 @@ pa-applet &
 # Random wallpaper script
 sh ~/.wallpaper.sh &
 
-# Start f.lux
-xflux -l 62 -g 15 &
+autolock -time 30 -locker "systemctl suspend" -notify 50 -notifier "notify-send 'Inactivity, going to sleep' 'Computer will suspend in 30 seconds' -u critical -t 5000" -detectsleep
+#xautolock -corners +000 -locker "notify-send LEFT UP" -cornerdelay 1 &
+#xautolock -restart &
+#xautolock -corners 0+00 -locker "notify-send RIGHT UP" -cornerdelay 1 &
 
 # Start xSwipe
 perl ~/.xSwipe-master/xSwipe.pl &

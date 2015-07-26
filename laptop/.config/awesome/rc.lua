@@ -47,7 +47,7 @@ end
 beautiful.init("/home/rawa/.config/awesome/themes/multicolor/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = os.getenv("TERM") or "urxvt"
+terminal = "urxvt" or os.getenv("TERM") 
 browser = os.getenv("BROWSER") or "google-chrome-stable"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
@@ -174,7 +174,10 @@ shifty.config.apps = {
     {
         match = {
             --PushBullet
-            "crx_chlffgpmiacpedhhbkiomidkjlcfhogd"
+            "crx_chlffgpmiacpedhhbkiomidkjlcfhogd",
+            --Chrome Notifications
+            "bubble",
+            "Sky"
         },
         float = true,
     },
@@ -569,8 +572,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1, 1, layouts) end),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1, 1, layouts) end),
+    awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts, 1) end),
+    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     --Macbook Media Keybindings
     awful.key({                   }, "XF86LaunchA",  function () awful.util.spawn("kbdlight down")end),
