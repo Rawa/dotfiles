@@ -48,7 +48,7 @@ chromium &
 sh ~/.bin/irkk &
 urxvt &
 urxvt &
-urxvt &
+urxvt -e zsh -c "task next && zsh" &
 
 # Make Capslock act as excape
 setxkbmap se -option caps:escape &
@@ -64,6 +64,11 @@ pa-applet &
 
 # Random wallpaper script
 sh ~/.wallpaper.sh &
+
+autolock -time 30 -locker "systemctl suspend" -notify 50 -notifier "notify-send 'Inactivity, going to sleep' 'Computer will suspend in 30 seconds' -u critical -t 5000" -detectsleep
+#xautolock -corners +000 -locker "notify-send LEFT UP" -cornerdelay 1 &
+#xautolock -restart &
+#xautolock -corners 0+00 -locker "notify-send RIGHT UP" -cornerdelay 1 &
 
 # Start xSwipe
 perl ~/.xSwipe-master/xSwipe.pl &
