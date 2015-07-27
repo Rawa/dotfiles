@@ -35,7 +35,7 @@ export GPG_AGENT_INFO
 # Enviromental variables
 export GOPATH=~/Code/go
 export PATH=$PATH:"/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
-export PATH=$PATH:"$HOME/.bin/"
+export PATH=$PATH:"$HOME/.bin"
 export PATH=$PATH:"$GOPATH/bin"
 export EDITOR="vim"
 export BROWSER="chromium"
