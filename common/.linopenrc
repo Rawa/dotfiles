@@ -26,20 +26,21 @@ interm=vim
 .doc:libreoffice
 .docx:libreoffice
 .xlsx:libreoffice
+.odt:libreoffice
 
 # 2. Mime type
 # image/png:sxiv
 # video/mp4:mpv
 # text/plain:vim
-application/x-tar:listarchive
-application/x-gzip:listarchive
-application/zip:listarchive
-application/x-rar:listarchive
+application/x-tar:aunpack
+application/x-gzip:aunpack
+application/zip:aunpack
+application/x-rar:aunpack
 
 # 3. Mime category
 image:feh
-video:mpv
-audio:mpv # you can also specify the interm rule explictly after '->'
+video:vlc
+audio:vlc # you can also specify the interm rule explictly after '->'
 text:vim
 
 # 4. Regexp
