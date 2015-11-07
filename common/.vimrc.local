@@ -1,6 +1,7 @@
 au! BufRead,BufNewFile *.repy  setfiletype repy
 
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1
+let g:switch_mapping = "-"
 
 map <up> <nop>
 map <down> <nop>
