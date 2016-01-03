@@ -52,10 +52,12 @@ urxvt &
 urxvt -e zsh -c "task next && zsh" &
 
 # Make Capslock act as excape
-setxkbmap se -option caps:escape &
+#setxkbmap se -option caps:escape &
+setxkbmap se -option 'caps:ctrl_modifier' &
+xcape -e 'Caps_Lock=Escape' &
 
 # Set keyboard repeat rate to 230
-xset r rate 230
+xset r rate 230 &
 
 # Start nm-applet
 nm-applet &
