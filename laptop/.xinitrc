@@ -69,7 +69,7 @@ pa-applet &
 sh ~/.wallpaper.sh &
 
 # Turn off S/PDIF 1 port
-sleep 1 && amixer -c 0 sset IEC958,16 off &
+sleep 3 && amixer -c 0 sset IEC958,16 off &
 
 # Start xSwipe
 perl ~/.xSwipe-master/xSwipe.pl &
