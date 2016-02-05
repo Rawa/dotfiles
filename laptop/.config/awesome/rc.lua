@@ -47,7 +47,7 @@ end
 beautiful.init("/home/rawa/.config/awesome/themes/multicolor/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvt" or os.getenv("TERM") 
+terminal = "urxvtc" or os.getenv("TERM") 
 browser = os.getenv("BROWSER") or "google-chrome-stable"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
@@ -119,6 +119,7 @@ shifty.config.apps = {
     {
         match = {
             terminal,
+            "urxvt",
         },
         tag = "term",
     },
@@ -184,6 +185,7 @@ shifty.config.apps = {
     {
         match = {
             terminal,
+            "urxvt",
         },
         honorsizehints = false,
         slave = true,

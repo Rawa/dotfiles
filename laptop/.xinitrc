@@ -47,9 +47,10 @@ export HASTE_SERVER="http://paste.davidgoransson.com"
 spotify &
 chromium &
 sh ~/.bin/irkk &
-urxvt &
-urxvt &
-urxvt -e zsh -c "task next && zsh" &
+urxvtd -q -f -o
+urxvtc &
+urxvtc &
+urxvtc -e zsh -c "task next && zsh" &
 
 # Make Capslock act as excape
 #setxkbmap se -option caps:escape &
