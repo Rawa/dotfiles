@@ -239,9 +239,12 @@ mytextclock = awful.widget.textclock(markup(beautiful.fg_blue, "%A %d %B ") .. m
 
 -- Weather
 weathericon = wibox.widget.imagebox(beautiful.widget_weather)
-yawn = lain.widgets.yawn(890869, {
-    settings = function()
-        widget:set_markup(markup(beautiful.fg_magenta, forecast:lower() .. " @ " .. units .. "°C "))
+weatherwidget = lain.widgets.weather({
+    city_id = 2689287,
+    settings = function () 
+        descr = weather_now["weather"][1]["description"]:lower()
+        units = math.floor(weather_now["main"]["temp"])
+        widget:set_markup(markup(beautiful.fg_magenta, descr .. " @ " .. units .. "°C "))
     end
 })
 
@@ -485,7 +488,7 @@ for s = 1, screen.count() do
     right_layout:add(baticon)
     right_layout:add(batwidget)
     right_layout:add(weathericon)
-    right_layout:add(yawn.widget)
+    right_layout:add(weatherwidget)
     right_layout:add(clockicon)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
