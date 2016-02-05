@@ -147,7 +147,7 @@ shifty.config.apps = {
         match = {
             "Mplayer.*",
             "Mirage",
-            "Spotify Premium - Linux Preview",
+            "Spotify",
             "spotify",
             "gtkpod",
             "Ufraw",
