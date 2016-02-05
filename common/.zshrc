@@ -77,3 +77,6 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# OPAM configuration
+. /home/rawa/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
