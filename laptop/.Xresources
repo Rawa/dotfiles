@@ -15,17 +15,8 @@ URxvt.shading:       10
 !-------------------------------------------------------------------------------
 
 ! Fonts
-!URxvt.allow_bold:           true
-!URxvt*font:                xft:Monospace:pixelsize=17
-!URxvt*boldFont:            xft:Monospace:style=bold:pixelsize=17
-URxvt*font:                 xft:Inconsolata for Powerline:style=Medium:pixelsize=23:antialias=true:hinting=slight, xft:PowerlineSymbols
-URxvt*boldFont:             xft:Inconsolata for Powerline:style=Medium:pixelsize=23:antialias=true:hinting=slight, xft:PowerlineSymbols
-!URxvt*font:                 xft:Inconsolata\ for\ Powerline:pixelsize=22
-!URxvt*boldFont:             xft:Inconsolata\ for\ Powerline:pixelsize=22
-!URxvt*font:                 xft:Inconsolata for Powerline:style=Semibold:pixelsize=21:antialias=true:hinting=slight,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-!URxvt*boldFont:             xft:Inconsolata for Powerline:style=bold:pixelsize=21:antialias=true:hinting=slight,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-!URxvt*font:                xft:Ubuntu Mono derivative Powerline
-!URxvt*boldFont:            xft:Ubuntu Mono derivative Powerline
+URxvt*font:                 xft:Inconsolata for Powerline:style=Medium:pixelsize=23:antialias=true:hinting=slight
+URxvt*boldFont:             xft:Inconsolata for Powerline:style=Medium:pixelsize=23:antialias=true:hinting=slight
 
 URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease
