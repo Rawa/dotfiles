@@ -134,6 +134,7 @@ shifty.config.apps = {
         match = {
             "subl3",
             "Android Studio*",
+            "Xephyr",
         },
         tag = "code",
     },
