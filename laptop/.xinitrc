@@ -75,8 +75,5 @@ sleep 3 && amixer -c 0 sset IEC958,16 off &
 # Start xSwipe
 perl ~/.xSwipe-master/xSwipe.pl &
 
-# Merge Xresources
-xrdb -merge ~/.Xresources
-
 # Start awesome
 exec awesome
