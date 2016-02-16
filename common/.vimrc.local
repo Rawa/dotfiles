@@ -8,6 +8,9 @@ map <right> <nop>
 set makeprg=[[\ -f\ Makefile\ ]]\ &&\ make\ \\\|\\\|\ make\ -C\ ..
 set clipboard=unnamedplus
 
+" Fix for not beeing able to write å
+let g:AutoPairsShortcutFastWrap='<Nop>'
+
 function Haste() range
   echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).'| haste | xsel -ib')
 endfunction
