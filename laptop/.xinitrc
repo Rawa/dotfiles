@@ -17,16 +17,6 @@ fi
 
 [[ -f ~/.Xresources  ]] && xrdb -merge ~/.Xresources
 
-### synclient
-#synclient TapButton2=3
-#synclient ClickFinger3=2
-#synclient TapButton1=1
-#synclient HorizTwoFingerScroll=1
-#synclient HorizScrollDelta=-243
-#synclient PalmDetect=1
-
-#source /etc/X11/xinit/xinitrc.d/30-dbus
-
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 # You probably need to do this too:
 export SSH_AUTH_SOCK
@@ -52,13 +42,12 @@ urxvtc &
 urxvtc &
 urxvtc -e zsh -c "task next && zsh" &
 
-# Make Capslock act as excape
-#setxkbmap se -option caps:escape &
-setxkbmap se -option 'caps:ctrl_modifier' &
-xcape -e 'Caps_Lock=Escape' &
+# Make Capslock act as escape/control
+setxkbmap se -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'
 
 # Set keyboard repeat rate to 230
-xset r rate 230 &
+xset r rate 230
 
 # Start nm-applet
 nm-applet &
@@ -71,9 +60,6 @@ sh ~/.wallpaper.sh &
 
 # Turn off S/PDIF 1 port
 sleep 3 && amixer -c 0 sset IEC958,16 off &
-
-# Start xSwipe
-perl ~/.xSwipe-master/xSwipe.pl &
 
 # Start awesome
 exec awesome
