@@ -77,6 +77,10 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+LOCAL_CONF=".zshrc.local"
+if [ -e ~/$LOCAL_CONF ]; then
+   source ~/$LOCAL_CONF
+fi
 
 # OPAM configuration
 . /home/rawa/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
