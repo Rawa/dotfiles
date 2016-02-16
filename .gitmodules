@@ -4,6 +4,3 @@
 [submodule "modules/upload"]
 	path = modules/upload
 	url = https://github.com/Rawa/upload
-[submodule "modules/lifx-cli"]
-	path = modules/lifx-cli
-	url = https://github.com/Rawa/lifx-cli
