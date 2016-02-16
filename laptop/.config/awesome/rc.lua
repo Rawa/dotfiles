@@ -565,7 +565,7 @@ globalkeys = awful.util.table.join(
             end
         end),
 
-    awful.key({ modkey }, "s", function () scratch.drop(terminal, "bottom", "center", 1, 0.4) end),
+    awful.key({ modkey }, "s", function () scratch.drop(terminal .. " -name scratchpad", "center", "center",0.6, 0.6) end),
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey,           }, "b", function () awful.util.spawn(browser) end),
