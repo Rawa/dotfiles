@@ -27,8 +27,9 @@ chromium &
 urxvt &
 urxvt &
 
-# Make Capslock act as excape
-setxkbmap se -option caps:escape &
+# Make Capslock act as escape/control
+setxkbmap se -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'
 
 # Set keyboard repeat rate to 230
 xset r rate 230
