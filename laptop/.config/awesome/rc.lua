@@ -1,19 +1,19 @@
 -- Standard awesome library
-local gears = require("gears")
-local awful = require("awful")
-awful.rules = require("awful.rules")
+local gears     = require("gears")
+local awful     = require("awful")
+awful.rules     = require("awful.rules")
 require("awful.autofocus")
 -- Widget and layout library
-local wibox = require("wibox")
+local wibox     = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local naughty = require("naughty")
-local menubar = require("menubar")
+local naughty   = require("naughty")
+local menubar   = require("menubar")
 -- Shifty - dynamic tagging library
-local shifty = require("shifty")
+local shifty    = require("shifty")
 -- Scratchpad
-local scratch = require ("scratch")
+local scratch   = require ("scratch")
 
 local lain      = require("lain")
 
@@ -64,9 +64,7 @@ local layouts =
 {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
+    awful.layout.suit.tile.bottom,
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
 }
@@ -77,14 +75,12 @@ shifty.config.tags = {
     term = {
         layout      = awful.layout.suit.tile,
         mwfact      = 0.55,
-        exclusive   = true,
         position    = 1,
         init        = true,
     },
     www = {
-        layout      = awful.layout.suit.max,
-        exclusive   = true,
-        max_clients = 2,
+        layout      = awful.layout.suit.tile,
+        max_clients = 1,
         position    = 2,
         init        = true,
     },
@@ -93,23 +89,17 @@ shifty.config.tags = {
         mwfact    = 0.60,
         position  = 3,
         init      = true,
-        slave     = true,
     },
     irc = {
-        layout    = awful.layout.suit.max,
+        layout    = awful.layout.suit.tile,
         mwfact    = 0.60,
         position  = 4,
         init      = true,
-        slave     = true,
     },
     media = {
-        layout    = awful.layout.suit.max,
+        layout    = awful.layout.suit.tile,
         position  = 5,
         init      = true,
-        slave     = true,
-    },
-    torrent = {
-        layout    = awful.layout.suit.max,
     },
 }
 
@@ -118,15 +108,23 @@ shifty.config.tags = {
 shifty.config.apps = {
     {
         match = {
-            terminal,
-            "urxvt",
+            "term"
         },
         tag = "term",
     },
     {
         match = {
+            terminal,
+            "urxvt",
+            "URxvt",
+        },
+        honorsizehints = false,
+    },
+    {
+        match = {
             "Google*",
             "Chromium*",
+            "chromium*",
         },
         tag = "www",
     },
@@ -136,6 +134,7 @@ shifty.config.apps = {
             "Android Studio*",
             "Xephyr",
         },
+        float = false,
         tag = "code",
     },
     {
@@ -147,31 +146,10 @@ shifty.config.apps = {
     },
     {
         match = {
-            "Mplayer.*",
-            "Mirage",
-            "Spotify",
-            "spotify",
-            "gtkpod",
-            "Ufraw",
-            "easytag",
+            "spotify*",
+            "Spotify*",
         },
         tag = "media",
-        nopopup = true,
-    },
-    {
-        match = {
-            "transmission-gtk",
-            "Transmission",
-        },
-        tag = "torrent",
-    },
-    {
-        match = {
-            "MPlayer",
-            "Gnuplot",
-            "galculator",
-        },
-        float = true,
     },
     {
         match = {
@@ -182,14 +160,6 @@ shifty.config.apps = {
             "Sky"
         },
         float = true,
-    },
-    {
-        match = {
-            terminal,
-            "urxvt",
-        },
-        honorsizehints = false,
-        slave = true,
     },
     {
         match = {""},
@@ -214,7 +184,7 @@ shifty.config.apps = {
 --  * run : function to exec when shifty creates a new tag
 --  * all other parameters (e.g. layout, mwfact) follow awesome's tag API
 shifty.config.defaults = {
-    layout = awful.layout.suit.tile.bottom,
+    layout = awful.layout.suit.tile,
     ncol = 1,
     mwfact = 0.60,
     floatBars = true,
@@ -521,24 +491,23 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
     -- Shifty: keybindings specific to shifty
-    awful.key({modkey, "Shift"}, "d", shifty.del), -- delete a tag
-    awful.key({modkey, "Shift"}, "n", shifty.send_prev), -- client to prev tag
-    awful.key({modkey}, "n", shifty.send_next), -- client to next tag
-    awful.key({modkey, "Control"},
-              "n",
-              function()
-                  local t = awful.tag.selected()
-                  local s = awful.util.cycle(screen.count(), awful.tag.getscreen(t) + 1)
-                  awful.tag.history.restore()
-                  t = shifty.tagtoscr(s, t)
-                  awful.tag.viewonly(t)
-              end),
-    awful.key({modkey}, "a", shifty.add), -- creat a new tag
-    awful.key({modkey, "Shift"}, "r", shifty.rename), -- rename a tag
-    awful.key({modkey, "Shift"}, "a", -- nopopup new tag
-    function()
-        shifty.add({nopopup = true})
-    end),
+    awful.key({modkey, "Shift"    }, "d", shifty.del), -- delete a tag
+    awful.key({modkey, "Shift"    }, "n", shifty.send_prev), -- client to prev tag
+    awful.key({modkey             }, "n", shifty.send_next), -- client to next tag
+    awful.key({modkey, "Control"  }, "n",
+        function()
+            local t = awful.tag.selected()
+            local s = awful.util.cycle(screen.count(), awful.tag.getscreen(t) + 1)
+            awful.tag.history.restore()
+            t = shifty.tagtoscr(s, t)
+            awful.tag.viewonly(t)
+        end),
+    awful.key({modkey,           }, "a", shifty.add), -- creat a new tag
+    awful.key({modkey, "Shift"   }, "r", shifty.rename), -- rename a tag
+    awful.key({modkey, "Shift"   }, "a", -- nopopup new tag
+        function()
+            shifty.add({nopopup = true})
+        end),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -565,9 +534,11 @@ globalkeys = awful.util.table.join(
             end
         end),
 
-    awful.key({ modkey }, "s", function () scratch.drop(terminal .. " -name scratchpad", "center", "center",0.6, 0.6) end),
+    awful.key({ modkey            }, "s", function () scratch.drop(terminal .. " -name scratchpad", "center", "center", 0.7, 0.7) end),
+
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
+    awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn(terminal .. " -name term") end),
     awful.key({ modkey,           }, "b", function () awful.util.spawn(browser) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
@@ -592,21 +563,22 @@ globalkeys = awful.util.table.join(
     awful.key({                   }, "XF86AudioLowerVolume",  function () awful.util.spawn("amixer -q sset Master 1%- -M") end),
     awful.key({                   }, "XF86AudioRaiseVolume",  function () awful.util.spawn("amixer -q sset Master 1%+ -M") end),
 
-    awful.key({ modkey, "Control" }, "l",  function () awful.util.spawn("slimlock") end),
-
+    awful.key({ modkey, "Control" }, "l",  
+        function () awful.util.spawn("slimlock") end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Prompt
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox[mouse.screen].widget,
-                  awful.util.eval, nil,
-                  awful.util.getdir("cache") .. "/history_eval")
-              end),
+    awful.key({ modkey            }, "x",
+        function ()
+            awful.prompt.run({ prompt = "Run Lua code: " },
+            mypromptbox[mouse.screen].widget,
+            awful.util.eval, nil,
+            awful.util.getdir("cache") .. "/history_eval")
+        end),
     -- Menubar
-    awful.key({ modkey }, "r", function() menubar.show() end)
+    awful.key({ modkey            }, "r", 
+        function() menubar.show() end)
 
 )
 
@@ -640,7 +612,7 @@ shifty.config.modkey = modkey
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, (shifty.config.maxtags or 9) do
     globalkeys = awful.util.table.join(globalkeys,
-        awful.key({ modkey }, "#" .. i + 9,
+        awful.key({ modkey,           }, "#" .. i + 9,
                   function ()
                       awful.tag.viewonly(shifty.getpos(i))
                   end),
@@ -648,7 +620,7 @@ for i = 1, (shifty.config.maxtags or 9) do
                   function ()
                       awful.tag.viewtoggle(shifty.getpos(i))
                   end),
-        awful.key({ modkey, "Shift" }, "#" .. i + 9,
+        awful.key({ modkey, "Shift"   }, "#" .. i + 9,
                   function ()
                       if client.focus then
                           local t = shifty.getpos(i)
@@ -707,13 +679,10 @@ client.connect_signal("manage", function (c, startup)
         end
     end)
 
-    -- Don't honor the requested size.
-    -- c.size_hints_honor = false
-
     if not startup then
         -- Set the windows at the slave,
         -- i.e. put it at the end of others instead of setting it master.
-        -- awful.client.setslave(c)
+        awful.client.setslave(c)
 
         -- Put windows in a smart way, only if they does not set an initial position.
         if not c.size_hints.user_position and not c.size_hints.program_position then

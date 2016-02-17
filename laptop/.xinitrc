@@ -38,9 +38,9 @@ spotify &
 chromium &
 sh ~/.bin/irkk &
 urxvtd -q -f -o
-urxvtc &
-urxvtc &
-urxvtc -e zsh -c "task next && zsh" &
+urxvtc -name term &
+urxvtc -name term &
+urxvtc -name term -e zsh -c "task next && zsh" &
 
 # Make Capslock act as escape/control
 setxkbmap se -option 'caps:ctrl_modifier'
