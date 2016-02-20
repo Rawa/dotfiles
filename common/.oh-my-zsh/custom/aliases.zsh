@@ -6,3 +6,4 @@ alias cl='clear'
 alias saywhat='whatis "$(fc -nl -1 | awk "{print \$NF}")"'
 alias info='info --vi-keys'
 alias vim='nvim'
+alias vi=vim
