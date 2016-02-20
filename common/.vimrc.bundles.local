@@ -1,2 +1,3 @@
 Bundle 'AndrewRadev/switch.vim'
-Bundle 'vim-airline/vim-airline-themes'
+Bundle 'xolox/vim-easytags'
+Bundle 'xolox/vim-misc'
