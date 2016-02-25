@@ -11,6 +11,10 @@ done
   unset f
 fi
 
+# Make Capslock act as escape/control
+setxkbmap se -option 'lv3:caps_switch'
+xcape -e 'Caps_Lock=Escape'
+
 if [ -s ~/.Xmodmap ]; then
     xmodmap ~/.Xmodmap
 fi
@@ -26,10 +30,6 @@ export GPG_AGENT_INFO
 chromium &
 urxvt &
 urxvt &
-
-# Make Capslock act as escape/control
-setxkbmap se -option 'caps:ctrl_modifier'
-xcape -e 'Caps_Lock=Escape'
 
 # Set keyboard repeat rate to 230
 xset r rate 230

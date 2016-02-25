@@ -11,6 +11,10 @@ done
   unset f
 fi
 
+# Make Capslock act as escape/control
+setxkbmap se -option 'lv3:caps_switch'
+xcape -e 'Caps_Lock=Escape'
+
 if [ -s ~/.Xmodmap ]; then
     xmodmap ~/.Xmodmap
 fi
@@ -41,10 +45,6 @@ urxvtd -q -f -o
 urxvtc -name term &
 urxvtc -name term &
 urxvtc -name term -e zsh -c "task next && zsh" &
-
-# Make Capslock act as escape/control
-setxkbmap se -option 'caps:ctrl_modifier'
-xcape -e 'Caps_Lock=Escape'
 
 # Set keyboard repeat rate to 230
 xset r rate 230
