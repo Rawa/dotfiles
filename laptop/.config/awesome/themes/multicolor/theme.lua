@@ -5,7 +5,6 @@
                                       
 --]]
 
-
 theme                               = {}
 
 theme.confdir                       = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
@@ -100,6 +99,5 @@ theme.layout_max                    = theme.confdir .. "/icons/max.png"
 theme.layout_fullscreen             = theme.confdir .. "/icons/fullscreen.png"
 theme.layout_magnifier              = theme.confdir .. "/icons/magnifier.png"
 theme.layout_floating               = theme.confdir .. "/icons/floating.png"
-
 
 return theme
