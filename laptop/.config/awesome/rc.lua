@@ -133,6 +133,7 @@ shifty.config.apps = {
             "subl3",
             "Android Studio*",
             "Xephyr",
+            "Zathura",
         },
         float = false,
         tag = "code",
