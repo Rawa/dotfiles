@@ -11,10 +11,9 @@ set clipboard=unnamedplus
 " Fix for not beeing able to write å
 let g:AutoPairsShortcutFastWrap='<Nop>'
 let g:airline#extensions#tabline#enabled = 1
+let g:deoplete#enable_at_startup = 1
 
 nnoremap <S-H> :Hexmode<CR>
-inoremap <S-H> <Esc>:Hexmode<CR>
-vnoremap <S-H> :<C-U>Hexmode<CR>
 
 " ex command for toggling hex mode - define mapping if desired
 command -bar Hexmode call ToggleHex()
