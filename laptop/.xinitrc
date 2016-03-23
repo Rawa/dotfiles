@@ -29,21 +29,21 @@ export GPG_AGENT_INFO
 
 # Enviromental variables
 export GOPATH=~/Code/go
-export PATH=$PATH:"/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 export PATH=$PATH:"$HOME/.bin"
 export PATH=$PATH:"$GOPATH/bin"
 export PATH=$PATH:"$HOME/.cabal/bin"
 export EDITOR="vim"
+export TERMINAL="urxvtc"
 export BROWSER="chromium"
 export JAVA_HOME="/usr/lib/jvm/default-runtime/jre"
 export HASTE_SERVER="http://paste.davidgoransson.com"
+export ANDROID_HOME="$HOME/Android/Sdk/"
 
 ### Autostart ###
-spotify &
+spotify --force-device-scale-factor=1.2 &
 chromium &
 sh ~/.bin/irkk &
 urxvtd -q -f -o
-urxvtc -name term &
 urxvtc -name term &
 urxvtc -name term -e zsh -c "task next && zsh" &
 
@@ -54,7 +54,7 @@ xset r rate 230
 nm-applet &
 
 # Start pa applet
-pa-applet &
+pa-applet --disable-key-grabbing &
 
 # Random wallpaper script
 sh ~/.wallpaper.sh &
@@ -63,4 +63,4 @@ sh ~/.wallpaper.sh &
 sleep 3 && amixer -c 0 sset IEC958,16 off &
 
 # Start awesome
-exec awesome
+exec $1

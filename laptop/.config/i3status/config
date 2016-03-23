@@ -1,0 +1,40 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+# ~/.i3status.conf
+# Base16 rawa, by David Goransson (www.davidgoransson.com)
+# template by Matt Parnell, @parnmatt
+
+general {
+    colors = true
+    color_good = "#66bb6a"
+    color_bad = "#ef5350"
+    ## remember to add your prefered interval
+    interval = 5
+}
+
+order += "run_watch VPN"
+order += "battery 0"
+order += "load"
+order += "tztime local"
+
+battery 0 {
+        format = "%status %percentage"
+}
+
+run_watch DHCP {
+        pidfile = "/var/run/dhclient*.pid"
+}
+
+run_watch VPN {
+        pidfile = "/var/run/vpnc/pid"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}

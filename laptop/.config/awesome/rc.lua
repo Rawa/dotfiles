@@ -321,7 +321,7 @@ batwidget = lain.widgets.bat({timeout = 1,
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
 volumewidget = lain.widgets.alsa({
-    timeout  = 0.3,
+    timeout  = 0.1,
     settings = function()
         icon = nil
         local vol = tonumber(volume_now.level)
@@ -561,8 +561,17 @@ globalkeys = awful.util.table.join(
     awful.key({                   }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -9")                end),
     awful.key({                   }, "XF86MonBrightnessUp",   function () awful.util.spawn("xbacklight +9")                end),
     awful.key({                   }, "XF86AudioMute",         function () awful.util.spawn("amixer set Master 1+ toggle")  end),
-    awful.key({                   }, "XF86AudioLowerVolume",  function () awful.util.spawn("amixer -q sset Master 1%- -M") end),
-    awful.key({                   }, "XF86AudioRaiseVolume",  function () awful.util.spawn("amixer -q sset Master 1%+ -M") end),
+    awful.key({                   }, "XF86AudioLowerVolume",  function () awful.util.spawn_with_shell("amixer -q sset Master 1%- -M") end),
+    awful.key({                   }, "XF86AudioRaiseVolume",  function () awful.util.spawn_with_shell("amixer -q sset Master 1%+ -M") end),
+
+    awful.key({ "Mod5",           }, "q",
+        function ()
+            awful.util.spawn_with_shell('lifx toggle && notify-send "lifx" "toggling"')
+        end),
+    awful.key({ "Mod5",           }, "w",  
+        function () 
+            awful.util.spawn_with_shell('notify-send "lifx" "$(lifx list)"')
+        end),
 
     awful.key({ modkey, "Control" }, "l",  
         function () awful.util.spawn("slimlock") end),
