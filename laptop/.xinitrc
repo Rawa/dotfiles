@@ -63,4 +63,4 @@ sh ~/.wallpaper.sh &
 sleep 3 && amixer -c 0 sset IEC958,16 off &
 
 # Start awesome
-exec $1
+exec i3
