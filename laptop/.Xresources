@@ -48,10 +48,10 @@ URxvt.keysym.M-C-v:         perl:clipboard:paste_escaped
 rofi.kb-row-select: Tab
 rofi.kb-row-down:   Control+j
 rofi.kb-row-up:     Control+k
-rofi.fg:            #42a5f5
-rofi.bg:            #181818
-rofi.hlfg:          #42a5f5
-rofi.hlbg:          #282828
+rofi.color-enabled: true
+! Colors           bg     , fg,    , bgalt  , hlfg   , hlbg
+rofi.color-normal: #181818, #42a5f5, #282828, #42a5f5, #282828
+rofi.color-window: #181818, #282828
 rofi.width:         25
 rofi.lines:         15
 rofi.font:          Inconsolata\ for\ Powerline 20
