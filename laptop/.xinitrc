@@ -40,8 +40,8 @@ export HASTE_SERVER="http://paste.davidgoransson.com"
 export ANDROID_HOME="$HOME/Android/Sdk/"
 
 ### Autostart ###
-spotify --force-device-scale-factor=1.2 &
-chromium &
+spotify --force-device-scale-factor=1.5 &
+chromium --force-device-scale-factor=1.5 &
 sh ~/.bin/irkk &
 urxvtd -q -f -o
 urxvtc -name term &
