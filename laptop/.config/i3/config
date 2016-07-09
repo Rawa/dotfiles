@@ -229,7 +229,7 @@ client.urgent           $base00 $base08 $base00 $base08
 bar {
     ## remember to add your favourite status bar, i.e.,
     # status_command i3status
-    status_command i3status
+    status_command i3blocks
 	position top
 	tray_padding 3
 
