@@ -25,87 +25,53 @@
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 command=/usr/lib/i3blocks/$BLOCK_NAME
-separator_block_width=15
+separator_block_width=40
 markup=none
 
-# Volume indicator
-#
-# The first parameter sets the step (and units to display)
-# The second parameter overrides the mixer selection
-# See the script for details.
+
+[cpu_usage]
+label=
+command=~/.config/i3blocks/scripts/cpu_usage
+interval=10
+
+[memory]
+label=
+interval=20
+color=#cb4b16
+
+[weather]
+label=
+command=~/.config/i3blocks/scripts/weather.sh "EUR|SE|SW021|GOTHENBURG"
+color=#9fbc00
+interval=360
+
+[wifi]
+label=
+command=~/.config/i3blocks/scripts/wifi.sh wlp2s0
+color=#d33682
+interval=5
+
+[openvpn]
+command=~/.config/i3blocks/scripts/openvpn
+interval=20
+color=#468bcb
+
+[redshift]
+label=
+command=~/.config/i3blocks/scripts/redshift.sh
+interval=once
+color=#cb4b16
+
 [volume]
-label=VOL
+label=
 instance=Master
 interval=10
 signal=10
 
-[cpu_usage]
-label=CPU
-interval=10
-min_width=CPU: 100%
-
-#separator=false
-# Memory usage
-#
-# The type defaults to "mem" if the instance is not specified.
-[memory]
-label=MEM
-interval=20
-
-[Weather label]
-full_text=
-separator=false
-color=#9fbc00
-
-[weather]
-command=~/.config/i3blocks/scripts/weather.sh "EUR|SE|SW021|GOTHENBURG"
-interval=360
-
-# Disk usage
-#
-# The directory defaults to $HOME if the instance is not specified.
-# The script may be called with a optional argument to set the alert
-# (defaults to 10 for 10%).
-[disk]
-label=HOME
-#instance=/mnt/data
-interval=30
-
-[ssid]
-label=
-command=echo "$(iw dev wlp2s0 link | grep SSID | cut -d " " -f 2-)"
-color=#d33682
-interval=5
-separator=false
-
-[strength]
-command=echo "$(iw dev wlp2s0 link | grep signal | cut -d " " -f 2-)"
-interval=10
-color=#cb4b16
-
-# CPU usage
-#
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-
-#[load_average]
-#interval=10
-
-# Battery indicator
-#
-# The battery instance defaults to 0.
 [battery]
-command=~/.config/i3blocks/scripts/battery.sh
-label=BAT
-#label=⚡
-#instance=1
+command=~/.config/i3blocks/scripts/battery
 interval=30
 
-# Date Time
-#
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=1
-
-[openvpn]
-interval=20
