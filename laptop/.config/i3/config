@@ -186,9 +186,9 @@ for_window [class="^scratchpad$"] move scratchpad
 #
 # Multimedia keybindings {
 #
-bindsym XF86AudioMute         exec --no-startup-id amixer set Master 1+ toggle
-bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -q sset Master 1%- -M
-bindsym XF86AudioRaiseVolume  exec --no-startup-id amixer -q sset Master 1%+ -M
+bindsym XF86AudioMute         exec --no-startup-id amixer set Master 1+ toggle && pkill -RTMIN+10 i3blocks 
+bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -q sset Master 1%- -M && pkill -RTMIN+10 i3blocks 
+bindsym XF86AudioRaiseVolume  exec --no-startup-id amixer -q sset Master 1%+ -M && pkill -RTMIN+10 i3blocks 
 #bindsym XF86AudioNext         exec --no-startup-id 
 #bindsym XF86AudioPrev         exec --no-startup-id 
 bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down
@@ -226,7 +226,7 @@ client.urgent           $base00 $base08 $base00 $base08
 
 ## remember to add the rest of your configuration
 
-bar {
+bar {0
     ## remember to add your favourite status bar, i.e.,
     # status_command i3status
     status_command i3blocks
