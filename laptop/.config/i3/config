@@ -226,7 +226,7 @@ client.urgent           $base00 $base08 $base00 $base08
 
 ## remember to add the rest of your configuration
 
-bar {0
+bar {
     ## remember to add your favourite status bar, i.e.,
     # status_command i3status
     status_command i3blocks
