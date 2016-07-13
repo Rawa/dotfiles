@@ -56,6 +56,12 @@ command=~/.config/i3blocks/scripts/openvpn
 interval=20
 color=#468bcb
 
+[xautolock]
+command=~/.config/i3blocks/scripts/xautolock.sh
+interval=once
+color=#cb4b16
+signal=11
+
 [redshift]
 label=
 command=~/.config/i3blocks/scripts/redshift.sh
