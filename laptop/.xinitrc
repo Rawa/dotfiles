@@ -33,7 +33,7 @@ export PATH=$PATH:"$HOME/.bin"
 export PATH=$PATH:"$GOPATH/bin"
 export PATH=$PATH:"$HOME/.cabal/bin"
 export EDITOR="vim"
-export TERMINAL="urxvtc"
+export TERMINAL="roxterm"
 export BROWSER="chromium"
 export JAVA_HOME="/usr/lib/jvm/default-runtime/jre"
 export HASTE_SERVER="http://paste.davidgoransson.com"
@@ -43,9 +43,12 @@ export ANDROID_HOME="$HOME/Android/Sdk/"
 spotify --force-device-scale-factor=1.5 &
 chromium --force-device-scale-factor=1.5 &
 sh ~/.bin/irkk &
-urxvtd -q -f -o
-urxvtc -name term &
-urxvtc -name term -e zsh -c "task next && zsh" &
+roxterm &
+roxterm &
+roxterm -e zsh -c "task next && zsh" &
+#urxvtd -q -f -o
+#urxvtc -name term &
+#urxvtc -name term -e zsh -c "task next && zsh" &
 
 # Set keyboard repeat rate to 230
 xset r rate 230
