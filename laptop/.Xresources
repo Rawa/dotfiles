@@ -16,8 +16,8 @@ URxvt*background:           base01
 !-------------------------------------------------------------------------------
 
 ! Fonts
-URxvt*font:                 xft:Inconsolata for Powerline:style=Medium:pixelsize=31:antialias=true:hinting=slight
-URxvt*boldFont:             xft:Inconsolata for Powerline:style=Medium:pixelsize=31:antialias=true:hinting=slight
+URxvt*font:                 xft:Inconsolata for Powerline:style=Medium:pixelsize=29:antialias=true:hinting=slight
+URxvt*boldFont:             xft:Inconsolata for Powerline:style=Medium:pixelsize=29:antialias=true:hinting=slight
 
 URxvt.keysym.C-Up:          perl:font-size:increase
 URxvt.keysym.C-Down:        perl:font-size:decrease
