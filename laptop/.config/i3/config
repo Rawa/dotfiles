@@ -182,6 +182,15 @@ bindsym $mod+d mode "resize"
 
 bindsym $mod+b exec $BROWSER; workspace $WS2
 
+### Autostart ###
+exec spotify --force-device-scale-factor=1.5
+exec chromium --force-device-scale-factor=1.5
+exec sh ~/.bin/irkk
+exec roxterm
+exec roxterm -e zsh -c "task next && zsh"
+exec systemctl --user start xautolock.service
+exec systemctl --user start redshift.service
+
 # Scratch-pads {
 #
 bindsym mod4+s [class="^scratchpad$"] scratchpad show
@@ -201,15 +210,6 @@ bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down
 bindsym XF86KbdBrightnessUp   exec --no-startup-id kbdlight up
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight +9
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -9
-
-### Autostart ###
-exec --no-startup-id spotify --force-device-scale-factor=1.5
-exec --no-startup-id chromium --force-device-scale-factor=1.5
-exec --no-startup-id sh ~/.bin/irkk
-exec --no-startup-id roxterm
-exec --no-startup-id roxterm -e zsh -c "task next && zsh"
-exec --no startup-id systemctl --user start xautolock.service
-exec --no-startup-id systemctl --user start redshift.service
 
 # ~/.i3/config
 # i3 config template
