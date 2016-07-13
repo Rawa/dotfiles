@@ -1,0 +1,8 @@
+[Unit]
+Description=Xautolock Daemon
+
+[Service]
+ExecStart=/usr/bin/xautolock -locker "i3lock -f -u" -time 10
+
+[Install]
+WantedBy=default.target

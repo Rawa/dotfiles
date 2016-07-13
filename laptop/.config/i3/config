@@ -44,6 +44,9 @@ bindsym $mod+c kill
 # start rofi (a program launcher)
 bindsym $mod+r exec rofi -show run
 
+# Lock the screen
+bindsym $mod+i exec systemctl --user start xautolock.service && pkill -RTMIN+11 i3blocks && xautolock -locknow
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
