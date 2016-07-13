@@ -2,6 +2,7 @@
 Description=Xautolock Daemon
 
 [Service]
+Type=simple
 ExecStart=/usr/bin/xautolock -locker "i3lock -f -u" -time 10
 
 [Install]

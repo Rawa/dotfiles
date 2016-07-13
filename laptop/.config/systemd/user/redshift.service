@@ -2,6 +2,7 @@
 Description=Redshift Daemon
 
 [Service]
+Type=simple
 ExecStart=/usr/bin/redshift
 
 [Install]

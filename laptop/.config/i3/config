@@ -139,6 +139,9 @@ set $env_irc "irc"
 assign [class=$env_browser] → $WS2
 assign [class='jetbrains-studio'] → $WS3
 assign [instance=$env_irc] → $WS4
+
+# Ugly hack for Spotify
+for_window [class="Spotify"] move to workspace $WS5
 # }
 
 for_window [window_role="pop-up"] floating enable
@@ -199,6 +202,15 @@ bindsym XF86KbdBrightnessUp   exec --no-startup-id kbdlight up
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight +9
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -9
 
+### Autostart ###
+exec --no-startup-id spotify --force-device-scale-factor=1.5
+exec --no-startup-id chromium --force-device-scale-factor=1.5
+exec --no-startup-id sh ~/.bin/irkk
+exec --no-startup-id roxterm
+exec --no-startup-id roxterm -e zsh -c "task next && zsh"
+exec --no startup-id systemctl --user start xautolock.service
+exec --no-startup-id systemctl --user start redshift.service
+
 # ~/.i3/config
 # i3 config template
 # Base16 rawa by David Goransson (www.davidgoransson.com)
@@ -248,3 +260,5 @@ bar {
         urgent_workspace $base08 $base08 $base07
     }
 }
+
+

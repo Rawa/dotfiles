@@ -39,17 +39,6 @@ export JAVA_HOME="/usr/lib/jvm/default-runtime/jre"
 export HASTE_SERVER="http://paste.davidgoransson.com"
 export ANDROID_HOME="$HOME/Android/Sdk/"
 
-### Autostart ###
-spotify --force-device-scale-factor=1.5 &
-chromium --force-device-scale-factor=1.5 &
-sh ~/.bin/irkk &
-roxterm &
-roxterm &
-roxterm -e zsh -c "task next && zsh" &
-#urxvtd -q -f -o
-#urxvtc -name term &
-#urxvtc -name term -e zsh -c "task next && zsh" &
-
 # Set keyboard repeat rate to 230
 xset r rate 230
 
