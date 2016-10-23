@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+xrandr --output eDP1 --auto --output DP1 --right-of eDP1
+sleep 2
+xrandr --output eDP1 --auto --output DP1 --right-of eDP1
