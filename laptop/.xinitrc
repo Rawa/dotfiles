@@ -35,7 +35,6 @@ export PATH=$PATH:"$HOME/.cabal/bin"
 export EDITOR="vim"
 export TERMINAL="roxterm"
 export BROWSER="chromium"
-export JAVA_HOME="/usr/lib/jvm/default-runtime/jre"
 export HASTE_SERVER="http://paste.davidgoransson.com"
 export ANDROID_HOME="$HOME/Android/Sdk/"
 
