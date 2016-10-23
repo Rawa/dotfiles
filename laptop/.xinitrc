@@ -42,10 +42,14 @@ export ANDROID_HOME="$HOME/Android/Sdk/"
 xset r rate 230
 
 # Start nm-applet
-nm-applet &
-
-# Start pa applet
-pa-applet --disable-key-grabbing &
+# nm-applet &
+roxterm --fork
+roxterm -e zsh -c "task next && zsh" &
+spotify --force-device-scale-factor=1.5 &
+chromium --force-device-scale-factor=1.5 &
+scudcloud &
+sh ~/.bin/irkk &
+/usr/bin/dropbox &
 
 # Random wallpaper script
 sh ~/.wallpaper.sh &
