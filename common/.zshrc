@@ -14,7 +14,7 @@ ZSH_THEME="robbyrussell_modified"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=3
+export UPDATE_ZSH_DAYS=30
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -45,7 +45,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux vi-mode web-search adb tmux rsync fasd colored-man sudo common-aliases git git-flow taskwarrior)
+plugins=(archlinux web-search adb tmux rsync fasd colored-man sudo common-aliases git git-flow taskwarrior git-flow)
 
 source $ZSH/oh-my-zsh.sh
 

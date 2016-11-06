@@ -1,7 +1,5 @@
 Bundle 'xolox/vim-easytags'
 Bundle 'xolox/vim-misc'
 Bundle 'Shougo/deoplete.nvim'
-"UnBundle 'Shougo/neocomplete.vim.git'
 Bundle 'hsanson/vim-android'
-
-let g:spf13_no_autochdir = 1
+Bundle 'carlitux/deoplete-ternjs'

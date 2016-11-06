@@ -10,5 +10,6 @@ while true; do
 	#
 	# in any case, we try to reattach to the session, or, if that fails,
 	# create a new one.
-	urxvt -name scratchpad
+	#urxvt -name scratchpad
+    roxterm --separate --class=scratchpad 
 done

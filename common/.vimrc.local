@@ -8,7 +8,10 @@ set clipboard=unnamedplus
 
 " Fix for not beeing able to write å
 let g:AutoPairsShortcutFastWrap='<Nop>'
-"let g:deoplete#enable_at_startup = 1
+
+" Enablle Deoplete on start up
+let g:neoplete#enable_at_startup = 0
+let g:deoplete#enable_at_startup = 1
 
 "set textwidth=100
 set colorcolumn=+1

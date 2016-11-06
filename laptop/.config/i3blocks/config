@@ -1,0 +1,83 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+command=/usr/lib/i3blocks/$BLOCK_NAME
+separator_block_width=40
+markup=none
+
+
+[cpu_usage]
+label=
+command=~/.config/i3blocks/scripts/cpu_usage
+interval=10
+
+[memory]
+label=
+interval=20
+color=#cb4b16
+
+[weather]
+label=
+command=~/.config/i3blocks/scripts/weather.sh "EUR|SE|SW021|GOTHENBURG"
+color=#9fbc00
+interval=360
+
+[wifi]
+label=
+command=~/.config/i3blocks/scripts/wifi.sh wlp2s0
+color=#d33682
+interval=5
+
+[openvpn]
+command=~/.config/i3blocks/scripts/openvpn
+interval=20
+color=#468bcb
+
+[xautolock]
+command=~/.config/i3blocks/scripts/xautolock.sh
+interval=once
+color=#cb4b16
+signal=11
+
+[redshift]
+label=
+command=~/.config/i3blocks/scripts/redshift.sh
+interval=once
+color=#cb4b16
+
+[volume]
+label=
+instance=Master
+interval=10
+signal=10
+
+[battery]
+command=~/.config/i3blocks/scripts/battery
+interval=30
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1

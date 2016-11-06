@@ -3,7 +3,7 @@
 #include "/home/rawa/.Xresources.d/colors"
 
 URxvt.termName:             rxvt-256color
-Xcursor.size:               10
+Xcursor.size:               1e
 
 URxvt*foreground:           base07
 URxvt*background:           base01
@@ -16,8 +16,8 @@ URxvt*background:           base01
 !-------------------------------------------------------------------------------
 
 ! Fonts
-URxvt*font:                 xft:Inconsolata for Powerline:style=Medium:pixelsize=25:antialias=true:hinting=slight
-URxvt*boldFont:             xft:Inconsolata for Powerline:style=Medium:pixelsize=25:antialias=true:hinting=slight
+URxvt*font:                 xft:Inconsolata for Powerline:style=Medium:pixelsize=29:antialias=true:hinting=slight
+URxvt*boldFont:             xft:Inconsolata for Powerline:style=Medium:pixelsize=29:antialias=true:hinting=slight
 
 URxvt.keysym.C-Up:          perl:font-size:increase
 URxvt.keysym.C-Down:        perl:font-size:decrease
@@ -33,7 +33,7 @@ URxvt.scrollBar:            false
 
 ! Perl extensions
 URxvt.matcher.button:       1
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font
 URxvt.url-select.launcher:  xdg-open
 URxvt.url-select.underline: true
 URxvt.keysym.M-u:           perl:url-select:select_next
@@ -67,7 +67,7 @@ URxvt.pointerBlank:         true
 URxvt.urgentOnBell:         true
 
 ! Display settings
-Xft.dpi: 127
+Xft.dpi: 140
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull

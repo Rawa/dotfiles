@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:Inconsolata for Powerline Medium 8
+font xft:InconsolataForPowerline Nerd Font 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -43,6 +43,9 @@ bindsym $mod+c kill
 
 # start rofi (a program launcher)
 bindsym $mod+r exec rofi -show run
+
+# Lock the screen
+bindsym $mod+i exec systemctl --user start xautolock.service && pkill -RTMIN+11 i3blocks && xautolock -locknow
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -129,6 +132,8 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+bindsym $mod+Ctrl+h move workspace to output left
+bindsym $mod+Ctrl+l move workspace to output right
 # Workspace assignments {
 #
 set $env_browser "chromium"
@@ -136,6 +141,10 @@ set $env_irc "irc"
 assign [class=$env_browser] → $WS2
 assign [class='jetbrains-studio'] → $WS3
 assign [instance=$env_irc] → $WS4
+assign [class=$scudcloud] → $WS4
+
+# Ugly hack for Spotify
+for_window [class="Spotify"] move to workspace $WS5
 # }
 
 for_window [window_role="pop-up"] floating enable
@@ -176,19 +185,25 @@ bindsym $mod+d mode "resize"
 
 bindsym $mod+b exec $BROWSER; workspace $WS2
 
+# Autostarts {
+#
+exec systemctl --user start xautolock.service
+exec systemctl --user start redshift.service
+# }
+
 # Scratch-pads {
 #
-bindsym mod4+s [instance="^scratchpad$"] scratchpad show
+bindsym mod4+s [class="^scratchpad$"] scratchpad show
 exec_always flock -w1 ~/.config/i3/scratchpad/lockfile ~/.config/i3/scratchpad/perpetual_terminal.sh
-for_window [instance="^scratchpad$"] move scratchpad
+for_window [class="^scratchpad$"] move scratchpad
 # }
 
 #
 # Multimedia keybindings {
 #
-bindsym XF86AudioMute         exec --no-startup-id amixer set Master 1+ toggle
-bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -q sset Master 1%- -M
-bindsym XF86AudioRaiseVolume  exec --no-startup-id amixer -q sset Master 1%+ -M
+bindsym XF86AudioMute         exec --no-startup-id amixer set Master 1+ toggle && pkill -RTMIN+10 i3blocks 
+bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -q sset Master 1%- -M && pkill -RTMIN+10 i3blocks 
+bindsym XF86AudioRaiseVolume  exec --no-startup-id amixer -q sset Master 1%+ -M && pkill -RTMIN+10 i3blocks 
 #bindsym XF86AudioNext         exec --no-startup-id 
 #bindsym XF86AudioPrev         exec --no-startup-id 
 bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down
@@ -229,9 +244,11 @@ client.urgent           $base00 $base08 $base00 $base08
 bar {
     ## remember to add your favourite status bar, i.e.,
     # status_command i3status
-    status_command i3status
+    status_command i3blocks
 	position top
 	tray_padding 3
+
+    font xft:Inconsolata For Powerline 8
 
     colors {
         separator $base03
@@ -243,3 +260,5 @@ bar {
         urgent_workspace $base08 $base08 $base07
     }
 }
+
+

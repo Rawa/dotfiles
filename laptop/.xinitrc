@@ -33,28 +33,23 @@ export PATH=$PATH:"$HOME/.bin"
 export PATH=$PATH:"$GOPATH/bin"
 export PATH=$PATH:"$HOME/.cabal/bin"
 export EDITOR="vim"
-export TERMINAL="urxvtc"
+export TERMINAL="roxterm"
 export BROWSER="chromium"
-export JAVA_HOME="/usr/lib/jvm/default-runtime/jre"
 export HASTE_SERVER="http://paste.davidgoransson.com"
 export ANDROID_HOME="$HOME/Android/Sdk/"
-
-### Autostart ###
-spotify --force-device-scale-factor=1.2 &
-chromium &
-sh ~/.bin/irkk &
-urxvtd -q -f -o
-urxvtc -name term &
-urxvtc -name term -e zsh -c "task next && zsh" &
 
 # Set keyboard repeat rate to 230
 xset r rate 230
 
 # Start nm-applet
-nm-applet &
-
-# Start pa applet
-pa-applet --disable-key-grabbing &
+# nm-applet &
+roxterm --fork
+roxterm -e zsh -c "task next && zsh" &
+spotify --force-device-scale-factor=1.5 &
+chromium --force-device-scale-factor=1.5 &
+scudcloud &
+sh ~/.bin/irkk &
+/usr/bin/dropbox &
 
 # Random wallpaper script
 sh ~/.wallpaper.sh &
