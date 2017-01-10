@@ -49,7 +49,6 @@ spotify --force-device-scale-factor=1.5 &
 chromium --force-device-scale-factor=1.5 &
 scudcloud &
 sh ~/.bin/irkk &
-/usr/bin/dropbox &
 
 # Random wallpaper script
 sh ~/.wallpaper.sh &
