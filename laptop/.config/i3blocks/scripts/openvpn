@@ -1,7 +1,8 @@
 #!/usr/bin/perl
 # Made by Pierre Mavro/Deimosfr <deimos@deimos.fr>
+# Minor contribution by Thor K. H. <thor@roht.no>
 # Licensed under the terms of the GNU GPL v3, or any later version.
-# Version: 0.2
+# Version: 0.3
 
 # Usage:
 # 1. The configuration name of OpenVPN should be familiar for you (home,work...)
@@ -27,10 +28,10 @@ sub print_output {
     if ($total_pid == 0) {
         print " down\n"x2;
         # Delete OpenVPN i3blocks temp files
+        print '#468bcb\n';
         if (-f $openvpn_enabled) {
             unlink $openvpn_enabled or die "Can't delete $openvpn_enabled\n";
             # Colorize if VPN has just went down
-            print '#FF0000\n';
         }
         unless (-f $openvpn_disabled) {
             open(my $shm, '>', $openvpn_disabled) or die "Can't write $openvpn_disabled\n";
@@ -45,6 +46,7 @@ sub print_output {
     my @config_name;
     my @config_path;
     my $interface;
+    my $config_prefix;
     my $current_config_path;
     my $current_config_name;
     foreach (@pid_files) {
@@ -68,18 +70,24 @@ sub print_output {
             open(CMD_LINE, '<', $cmd_line);
             while(<CMD_LINE>) {
                 chomp $_;
-                if ($_ =~ /--config\s*(.*\.conf)/) {
+                $config_prefix = "";
+                if ($_ =~ /--cd\x{00}(.*?)\x{00}/) {
+                    $config_prefix = $1;
+                }
+                if ($_ =~ /--config\x{00}(.*?\.conf)\x{00}/) {
                     # Get interface from config file
                     $current_config_path = $1;
                     # Remove unwanted escape chars
-                    $current_config_path =~ s/\x{00}//g;
                     $interface = 'null';
                     # Get configuration name
                     if ($current_config_path =~ /(\w+).conf/) {
                         $current_config_name=$1;
                     } else {
-                        $current_config_name='unknow';
+                        $current_config_name='unknown';
                     }
+
+                    $current_config_path = "$config_prefix/$current_config_path";
+
                     # Get OpenVPN interface device name
                     open(CONFIG, '<', $current_config_path) or die "Can't read config file '$current_config_path': $!\n";
                     while(<CONFIG>) {
@@ -91,6 +99,7 @@ sub print_output {
                     }
                     close(CONFIG);
                     # check if interface exist
+					#
                     unless ($interface eq 'null') {
                         if (-d "/sys/class/net/$interface") {
                             push @config_name, $current_config_name;
@@ -115,34 +124,38 @@ sub print_output {
         $names = join('/', @config_name);
         $short_status='up';
     } else {
-        exit(1);
         $short_status='down';
         $names = $short_status;
     }
 
     print " $names\n";
-    print " $short_status\n";
+    print ": $short_status\n";
 
     # Print color if there were changes
-    print "#00FF00\n" if ($change == 1);
+    if ($vpn_found == 1) {
+        print "#30FF30\n"
+    } else {
+        print "#468bcb\n";
+    }
 
     exit(0);
 }
 
 sub check_opts {
     # Vars
-    my @pid_file=glob '/run/openvpn/*.pid';
+    my $pid_file_format='/run/openvpn/*.pid';
 
     # Set options
     GetOptions( "help|h" => \&help,
-        "p=s"    => \@pid_file);
+        "p=s"    => \$pid_file_format);
 
+    my @pid_file=glob $pid_file_format;
     print_output(\@pid_file);
 }
 
 sub help {
-    print "Usage: openvpn [-d pid folder files]\n";
-    print "-d : pid folder files (default /run/openvpn/*.pid)\n";
+    print "Usage: openvpn [-p pid_file_format]\n";
+    print "-p : format string to glob all pid files (default '/run/openvpn/*.pid)'\n";
     print "Note: devices in configuration file should be named with their number (ex: tun0, tap1)\n";
     exit(1);
 }

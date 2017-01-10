@@ -52,9 +52,9 @@ color=#d33682
 interval=5
 
 [openvpn]
-command=~/.config/i3blocks/scripts/openvpn
+command=~/.config/i3blocks/scripts/openvpn -p "/run/openvpn*"
 interval=20
-color=#468bcb
+#color=#468bcb
 
 [xautolock]
 command=~/.config/i3blocks/scripts/xautolock.sh
