@@ -6,12 +6,16 @@ map <right> <nop>
 set makeprg=[[\ -f\ Makefile\ ]]\ &&\ make\ \\\|\\\|\ make\ -C\ ..
 set clipboard=unnamedplus
 
-" Fix for not beeing able to write å
+" Fix for not being able to write å
 let g:AutoPairsShortcutFastWrap='<Nop>'
 
-" Enablle Deoplete on start up
+" Enable Deoplete on start up
 let g:neoplete#enable_at_startup = 0
 let g:deoplete#enable_at_startup = 1
+
+
+" Folder based tabstop:
+au BufRead,BufNewFile,BufEnter ~/Work/Autoliv/liv/autoliv-liv-brain/* setlocal ts=2 sts=2 sw=2
 
 "set textwidth=100
 set colorcolumn=+1
