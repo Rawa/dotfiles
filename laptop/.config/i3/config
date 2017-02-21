@@ -142,6 +142,7 @@ assign [window_role="browser"] → $WS2
 assign [class="jetbrains-studio"] → $WS3
 assign [instance=$env_irc] → $WS4
 assign [class="Scudcloud"] → $WS4
+assign [class="franz"] → $WS4
 
 # Ugly hack for Spotify
 for_window [class="Spotify"] move to workspace $WS5
