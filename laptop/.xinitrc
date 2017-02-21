@@ -47,7 +47,7 @@ roxterm --fork
 roxterm -e zsh -c "task next && zsh" &
 spotify --force-device-scale-factor=1.5 &
 chromium --force-device-scale-factor=1.5 &
-scudcloud &
+franz-bin &
 sh ~/.bin/irkk &
 
 # Random wallpaper script
