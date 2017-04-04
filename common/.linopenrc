@@ -38,6 +38,7 @@ application/zip:aunpack
 application/x-rar:aunpack
 
 # 3. Mime category
+image/gif:chromium
 image:feh
 video:vlc
 audio:vlc # you can also specify the interm rule explictly after '->'
