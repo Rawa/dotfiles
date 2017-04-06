@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+xrandr --output eDP1 --off --output HDMI1 --scale 1.5x1.5 --panning 3840x2160+0+0 --output DP2 --right-of HDMI1 --panning 3840x2160+3840+0
