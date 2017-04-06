@@ -12,13 +12,8 @@ done
 fi
 
 
-# Make Capslock act as escape/control
-setxkbmap se -option 'lv3:caps_switch'
+# Make lvl3 act as escape ( use -option 'lv3:caps_switch' on xkb layout )
 xcape -e 'ISO_Level3_Shift=Escape'
-
-if [ -s ~/.Xmodmap ]; then
-    xmodmap ~/.Xmodmap
-fi
 
 [[ -f ~/.Xresources  ]] && xrdb -merge ~/.Xresources
 
@@ -32,6 +27,7 @@ export GOPATH=~/Code/go
 export PATH=$PATH:"$HOME/.bin"
 export PATH=$PATH:"$GOPATH/bin"
 export PATH=$PATH:"$HOME/.cabal/bin"
+export NODE_PATH=$NODE_PATH:"/usr/lib/node_modules/"
 export EDITOR="vim"
 export TERMINAL="roxterm"
 export BROWSER="chromium"

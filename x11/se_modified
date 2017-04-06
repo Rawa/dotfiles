@@ -1,0 +1,22 @@
+// File should be placed in ''usr/share/X11/xkb/symbols/se_modified'
+// based on a keyboard map from an 'xkb/symbols/se'
+//
+// This is a modified version of the se layout, enables for easier access of
+// certain keys through the user of lv3 key.
+
+default  partial alphanumeric_keys
+xkb_symbols "basic" {
+    include "latin(type2)"
+    include "se(se)"
+
+    key <AD07>	{ [         u,          U,    braceleft,       uparrow ]	};
+    key <AD08>	{ [         i,          I,   braceright,      idotless ]	};
+    key <AC06>	{ [         h,          H,        slash,       Hstroke ]	};
+    key <AC07>	{ [         j,          J,    parenleft,     dead_horn ]	};
+    key <AC08>	{ [         k,          K,   parenright,     ampersand ]	};
+    key <AC09>	{ [         l,          L,    backslash,       Lstroke ]	};
+    key <AB06>	{ [         n,          N,         less,             N ]	};
+    key <AB07>	{ [         m,          M,  bracketleft,     masculine ]	};
+    key <AB08>	{ [     comma,   semicolon, bracketright,  dead_ogonek ]	};
+    key <AB09>	{ [    period,       colon,      greater,dead_abovedot ]	};
+};
