@@ -1,5 +1,11 @@
 # dotfiles
-A simple script that takes arbitrary many files and upload them to your server and sets the correct permissions. The url to the file is placed in the clipboard.
+My setup of dotfiles for my computers.
+
+## Structure
+'/common' - Common files for all setups
+'/laptop' - laptop specfic configuration files 
+'/server' - server specific configuration files
+'/X11' - X11 configuration files, not really dotfiles
 
 ## Install
 git clone --recursive https://github.com/Rawa/dotfiles
