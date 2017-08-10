@@ -33,6 +33,8 @@ export TERMINAL="roxterm"
 export BROWSER="chromium"
 export HASTE_SERVER="http://paste.davidgoransson.com"
 export ANDROID_HOME="$HOME/Android/Sdk/"
+export EDITOR="vim"
+export VISUAL="$EDITOR"
 
 # Set keyboard repeat rate to 230
 xset r rate 230
@@ -44,7 +46,6 @@ roxterm -e zsh -c "task next && zsh" &
 spotify --force-device-scale-factor=1.5 &
 chromium --force-device-scale-factor=1.5 &
 franz-bin &
-sh ~/.bin/irkk &
 
 # Random wallpaper script
 sh ~/.wallpaper.sh &
