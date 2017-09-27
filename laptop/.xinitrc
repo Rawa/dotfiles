@@ -13,7 +13,6 @@ fi
 
 
 # Make lvl3 act as escape ( use -option 'lv3:caps_switch' on xkb layout )
-xcape -e 'ISO_Level3_Shift=Escape'
 
 [[ -f ~/.Xresources  ]] && xrdb -merge ~/.Xresources
 
@@ -36,8 +35,10 @@ export ANDROID_HOME="$HOME/Android/Sdk/"
 export EDITOR="vim"
 export VISUAL="$EDITOR"
 
-# Set keyboard repeat rate to 230
+# Configure keyboard settings 
+setxkbmap se_modified -option 'lv3:caps_switch'
 xset r rate 230
+xcape -e ISO_Level3_Shift=Escape
 
 # Start nm-applet
 # nm-applet &
@@ -45,7 +46,7 @@ roxterm --fork
 roxterm -e zsh -c "task next && zsh" &
 spotify --force-device-scale-factor=1.5 &
 chromium --force-device-scale-factor=1.5 &
-franz-bin &
+rambox &
 
 # Random wallpaper script
 sh ~/.wallpaper.sh &
