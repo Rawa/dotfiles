@@ -82,6 +82,8 @@ if [ -e ~/$LOCAL_CONF ]; then
    source ~/$LOCAL_CONF
 fi
 
+source /usr/share/nvm/init-nvm.sh
+
 # OPAM configuration
 . /home/rawa/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
