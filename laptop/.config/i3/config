@@ -191,6 +191,7 @@ bindsym $mod+b exec $BROWSER; workspace $WS2
 #
 exec systemctl --user start xautolock.service
 exec systemctl --user start redshift.service
+exec /home/rawa/.bin/lock.sh -u /home/rawa/dotfiles/laptop/.wallpapers/ dimblur
 # }
 
 # Scratch-pads {
