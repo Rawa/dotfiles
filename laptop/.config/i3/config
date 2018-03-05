@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:InconsolataForPowerline Nerd Font 8
+font xft:InconsolataForPowerline Nerd Font 13
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -250,7 +250,7 @@ bar {
 	position top
 	tray_padding 3
 
-    font xft:Inconsolata For Powerline 8
+    font xft:Inconsolata For Powerline 13
 
     colors {
         separator $base03
