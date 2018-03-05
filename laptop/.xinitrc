@@ -34,6 +34,8 @@ export HASTE_SERVER="http://paste.davidgoransson.com"
 export ANDROID_HOME="$HOME/Android/Sdk/"
 export EDITOR="vim"
 export VISUAL="$EDITOR"
+export LIBVA_DRIVER_NAME="vdpau"
+export VDPAU_DRIVER="nvidia"
 
 # Configure keyboard settings 
 setxkbmap se_modified -option 'lv3:caps_switch'
