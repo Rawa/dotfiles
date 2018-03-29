@@ -45,9 +45,14 @@ URxvt.keysym.M-C-v:         perl:clipboard:paste_escaped
 
 ! Rofi related
 ! Tab completion
-rofi.kb-row-select: Tab
 rofi.kb-row-down:   Control+j
 rofi.kb-row-up:     Control+k
+rofi.kb-accept-entry: Return,KP_Enter
+rofi.kb-row-tab: Tab
+
+rofi.kb-row-select:
+rofi.kb-remove-to-eol:
+
 rofi.color-enabled: true
 ! Colors           bg     , fg,    , bgalt  , hlfg   , hlbg
 rofi.color-normal: #181818, #42a5f5, #282828, #42a5f5, #282828
