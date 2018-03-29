@@ -56,5 +56,7 @@ sh ~/.wallpaper.sh &
 # Turn off S/PDIF 1 port
 sleep 3 && amixer -c 0 sset IEC958,16 off &
 
+mons -a &
+
 # Start awesome
 exec i3
