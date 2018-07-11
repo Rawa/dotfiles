@@ -136,7 +136,7 @@ bindsym $mod+Ctrl+h move workspace to output left
 bindsym $mod+Ctrl+l move workspace to output right
 # Workspace assignments {
 #
-set $env_browser "chromium"
+set $env_browser "google-chrome-stable"
 set $env_irc "irc"
 assign [window_role="browser"] → $WS2
 assign [class="jetbrains-studio"] → $WS3
