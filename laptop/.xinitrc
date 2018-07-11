@@ -29,7 +29,7 @@ export PATH=$PATH:"$HOME/.cabal/bin"
 export NODE_PATH=$NODE_PATH:"/usr/lib/node_modules/"
 export EDITOR="vim"
 export TERMINAL="roxterm"
-export BROWSER="chromium"
+export BROWSER="google-chrome-stable"
 export HASTE_SERVER="http://paste.davidgoransson.com"
 export ANDROID_HOME="$HOME/Android/Sdk/"
 export EDITOR="vim"
@@ -46,8 +46,7 @@ xcape -e ISO_Level3_Shift=Escape
 # nm-applet &
 roxterm --fork
 roxterm -e zsh -c "task next && zsh" &
-spotify --force-device-scale-factor=1.5 &
-chromium --force-device-scale-factor=1.5 &
+google-chrome-stable --force-device-scale-factor=1.5 &
 rambox &
 
 # Random wallpaper script
