@@ -26,6 +26,7 @@ export GOPATH=~/Code/go
 export PATH=$PATH:"$HOME/.bin"
 export PATH=$PATH:"$GOPATH/bin"
 export PATH=$PATH:"$HOME/.cabal/bin"
+export PATH=$PATH:"$HOME/.cargo/bin"
 export NODE_PATH=$NODE_PATH:"/usr/lib/node_modules/"
 export EDITOR="vim"
 export TERMINAL="roxterm"
