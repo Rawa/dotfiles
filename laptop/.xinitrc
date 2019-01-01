@@ -21,22 +21,6 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh
 export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 
-# Enviromental variables
-export GOPATH=~/Code/go
-export PATH=$PATH:"$HOME/.bin"
-export PATH=$PATH:"$GOPATH/bin"
-export PATH=$PATH:"$HOME/.cabal/bin"
-export PATH=$PATH:"$HOME/.cargo/bin"
-export NODE_PATH=$NODE_PATH:"/usr/lib/node_modules/"
-export EDITOR="vim"
-export TERMINAL="roxterm"
-export BROWSER="google-chrome-stable"
-export HASTE_SERVER="http://paste.davidgoransson.com"
-export ANDROID_HOME="$HOME/Android/Sdk/"
-export EDITOR="vim"
-export VISUAL="$EDITOR"
-export LIBVA_DRIVER_NAME="vdpau"
-export VDPAU_DRIVER="nvidia"
 
 # Configure keyboard settings 
 setxkbmap se_modified -option 'lv3:caps_switch'
@@ -45,10 +29,8 @@ xcape -e ISO_Level3_Shift=Escape
 
 # Start nm-applet
 # nm-applet &
-roxterm --fork
-roxterm -e zsh -c "task next && zsh" &
+tilix &
 google-chrome-stable --force-device-scale-factor=1.5 &
-rambox &
 
 # Random wallpaper script
 sh ~/.wallpaper.sh &
@@ -57,6 +39,9 @@ sh ~/.wallpaper.sh &
 sleep 3 && amixer -c 0 sset IEC958,16 off &
 
 mons -a &
+
+xrandr --setprovideroutputsource modesettings NVIDIA-0
+xrandr --auto
 
 # Start awesome
 exec i3

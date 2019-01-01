@@ -1,5 +1,4 @@
 #!/bin/sh
-run_inside="'ZDOTDIR=${HOME}/.config/i3/scratchpad zsh'"
 
 while true; do
 	# not using urxvtc here, as we're relying on the process to run
@@ -11,5 +10,5 @@ while true; do
 	# in any case, we try to reattach to the session, or, if that fails,
 	# create a new one.
 	#urxvt -name scratchpad
-    roxterm --separate --class=scratchpad 
+   tilix --new-process --class=scratchpad 
 done
