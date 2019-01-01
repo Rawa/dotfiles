@@ -45,7 +45,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux zsh-syntax-highlighting web-search systemd pacman adb tmux rsync fasd colored-man sudo common-aliases git git-flow taskwarrior)
+plugins=(archlinux zsh-syntax-highlighting systemd pacman adb tmux rsync fasd colored-man-pages sudo common-aliases git git-flow taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,3 +88,6 @@ source /usr/share/nvm/init-nvm.sh
 . /home/rawa/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  startx
+fi
