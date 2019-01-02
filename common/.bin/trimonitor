@@ -2,6 +2,7 @@
 #xrandr --output eDP1 --off --output HDMI1 --scale 1.5x1.5 --panning 3840x2160+0+0 --output DP2 --right-of HDMI1 --panning 3840x2160+3840+0
 
 # 2.5K + 4K + Laptop with abs positions
-xrandr --output eDP1 --auto --output DP2 --panning 3840x2160+0+0 --output HDMI1 --left-of DP2 --panning 3840x2160+3840+0 --scale 1.5x1.5
+#xrandr --output eDP1 --auto --output DP2 --panning 3840x2160+0+0 --output HDMI1 --left-of DP2 --panning 3840x2160+3840+0 --scale 1.5x1.5
 
+xrandr --output HDMI1 --panning 3840x2160+0+0 --scale 1.5x1.5 --mode 2560x1440 --pos 0x0 --output DP2 --mode 3840x2160 --pos 3840x0 --output eDP1 --mode 3840x2160 --pos 7680x0
 # xrandr --output eDP1 --off --output DP2 --panning 3840x2160+0+0 --output HDMI1 --right-of DP2 --scale 1.5x1.5 --rotate right
