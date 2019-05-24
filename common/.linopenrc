@@ -5,11 +5,11 @@
 
 # Specify your terminal emulator here
 # for terminal support.
-terminal=urxvt
+terminal=tilix
 # Specify all programs you want to
 # open in terminal like this:
 interm=listarchive
-interm=vim
+interm=nvim
 
 # There are 4 ways to match filetypes.
 # The following examples are in the order
@@ -38,7 +38,7 @@ application/zip:aunpack
 application/x-rar:aunpack
 
 # 3. Mime category
-image/gif:chromium
+image/gif:firefox
 image:feh
 video:vlc
 audio:vlc # you can also specify the interm rule explictly after '->'

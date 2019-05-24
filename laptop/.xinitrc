@@ -30,7 +30,6 @@ xcape -e ISO_Level3_Shift=Escape
 # Start nm-applet
 # nm-applet &
 tilix &
-google-chrome-stable --force-device-scale-factor=1.5 &
 
 # Random wallpaper script
 sh ~/.wallpaper.sh &
