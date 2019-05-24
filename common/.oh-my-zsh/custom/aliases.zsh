@@ -10,3 +10,6 @@ alias vi='nvim'
 alias shutdown='systemctl poweroff'
 alias m='/home/rawa/Work/Autoliv/liv'
 alias evim='vim ~/.config/nvim/init.vim'
+
+# jrnl
+alias jrnle='jrnl -n 1 --edit'
