@@ -16,3 +16,7 @@ export EDITOR="/usr/bin/nvim"
 export VISUAL="$EDITOR"
 export LIBVA_DRIVER_NAME="vdpau"
 export VDPAU_DRIVER="nouveau"
+
+export FZF_DEFAULT_COMMAND='ag -l --path-to-ignore ~/.ignore --nocolor --hidden -g ""'
+
+[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
