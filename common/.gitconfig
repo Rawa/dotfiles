@@ -1,0 +1,61 @@
+# Local/private config goes in the include
+[include]
+  path = ~/.gitconfig.local
+  path = ~/.gitconfig.aliases
+
+[core]
+	excludesfile = ~/.gitignore_global
+  editor = nvim
+
+[push]
+  default = current
+
+[pull]
+  default = current
+
+[diff]
+  mnemonicprefix = true
+  tool = vimdiff
+
+[difftool]
+  prompt = false
+
+[branch]
+  autosetuprebase = always
+
+[apply]
+  whitespace = nowarn
+
+[mergetool]
+  keepBackup = false
+
+[rebase]
+	autosquash = true
+
+#[color]
+#  branch = auto
+#  diff = auto
+#  status = auto
+#
+#[color "branch"]
+#  current = red reverse
+#  local = blue
+#  remote = green
+#
+#[color "diff"]
+#  meta = yellow
+#  frag = magenta
+#  old = red bold
+#  new = green
+#  plain = white
+#
+#[color "status"]
+#  added = yellow
+#  changed = green
+#  untracked = cyan
+
+#[commit]
+#	gpgsign = true
+#
+#[gpg]
+#  program = /usr/local/bin/gpg

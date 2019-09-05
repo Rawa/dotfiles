@@ -1,0 +1,72 @@
+[alias]
+  # clone
+  cl = clone --recurse-submodules
+
+  # push
+  p = push
+  po = push origin
+  pom = push origin master
+  pod = push origin develop
+  pof = push origin --force-with-lease
+  pf = push --force-with-lease
+
+  # pull
+  l = pull
+  lod = pull origin develop
+  lom = pull origin master
+  lr = pull --rebase
+  lrod = pull --rebase origin develop
+  lrom = pull --rebase origin master
+
+  # checkout
+  co = checkout
+  cb = checkout -b
+
+  # branch
+  br = branch
+
+  # status
+  ss = status -s
+
+  # add
+  aa = add --all
+
+  # commit
+  cmsg = commit -m
+  amended = commit --amend --no-edit
+
+  # reset
+  r = reset
+  r1 = reset HEAD^
+  r2 = reset HEAD^^
+  rh = reset --hard
+  rh1 = reset HEAD^ --hard
+  rh2 = reset HEAD^^ --hard
+
+  # rebase
+  rb = rebase
+  rbi = rebase --interactive
+  rbc = rebase --continue
+  rba = rebase --abort
+  rbd = rebase develop
+  rbm = rebase master
+
+  # log
+  lo = log --oneline --decorate --color
+  lop = lo -p
+  ll = lo --stat
+  lol = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  lols = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --stat
+  lola = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all
+  loga = log --oneline --decorate --graph --all
+  logFor1week = shortlog --since=1.week
+  logFor2week = shortlog --since=2.week
+  lf = log -u
+
+  # diff
+  d = diff
+  dl = diff --cached HEAD^ # Show a diff last commit
+  dt = difftool
+
+  # misc
+  count = shortlog -sn
