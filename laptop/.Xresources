@@ -3,7 +3,7 @@
 #include "/home/rawa/.Xresources.d/colors"
 
 URxvt.termName:             rxvt-256color
-Xcursor.size:               1e
+Xcursor.size:               32
 
 URxvt*foreground:           base07
 URxvt*background:           base01
