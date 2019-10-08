@@ -66,7 +66,7 @@ let g:vim_markdown_folding_level = 3
 "let g:vim_markdown_folding_disabled = 1
 
 " Kotlin
-"Plug 'udalov/kotlin-vim', { 'for' : 'kotlin'} 
+"Plug 'udalov/kotlin-vim', { 'for' : 'kotlin'}
 
 call plug#end()
 
