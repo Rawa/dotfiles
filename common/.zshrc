@@ -45,7 +45,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf archlinux zsh-syntax-highlighting systemd tmux rsync fasd colored-man-pages sudo common-aliases git-flow gitfast taskwarrior)
+plugins=(fzf archlinux zsh-syntax-highlighting systemd tmux rsync fasd colored-man-pages sudo common-aliases gitfast taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
 
