@@ -15,6 +15,8 @@ URxvt*background:           base01
 ! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
 !-------------------------------------------------------------------------------
 
+!xterm*font:                 xft:Inconsolata for Powerline:style=Medium:pixelsize=29:antialias=true:hinting=slight
+
 ! Fonts
 URxvt*font:                 xft:Inconsolata for Powerline:style=Medium:pixelsize=29:antialias=true:hinting=slight
 URxvt*boldFont:             xft:Inconsolata for Powerline:style=Medium:pixelsize=29:antialias=true:hinting=slight
