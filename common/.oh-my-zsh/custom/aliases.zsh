@@ -1,3 +1,5 @@
+alias g='git'
+
 alias ealiases='vim ~/.oh-my-zsh/custom/aliases.zsh'
 alias ei3='vim ~/.config/i3/config'
 alias open='xdg-open'
