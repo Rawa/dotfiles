@@ -1,4 +1,5 @@
 [alias]
+
   # clone
   cl = clone --recurse-submodules
 
@@ -22,18 +23,24 @@
   co = checkout
   cb = checkout -b
 
+  # switch
+  sw = switch
+  swc = switch -c
+
   # branch
   br = branch
 
   # status
+  s = status
   ss = status -s
 
   # add
+  a = add
   aa = add --all
 
   # commit
   cmsg = commit -m
-  amended = commit --amend --no-edit
+  ca = commit --amend --no-edit
 
   # reset
   r = reset
@@ -50,6 +57,11 @@
   rba = rebase --abort
   rbd = rebase develop
   rbm = rebase master
+
+  # cherry-pick
+  cp = cherry-pick
+  cpc = cherry-pick --continue
+  cpa = cherry-pick --abort
 
   # log
   lo = log --oneline --decorate --color
