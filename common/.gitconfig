@@ -12,6 +12,7 @@
 
 [pull]
   default = current
+  rebase = true
 
 [diff]
   mnemonicprefix = true
