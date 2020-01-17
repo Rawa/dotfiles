@@ -41,16 +41,68 @@ bindsym $mod+Return exec $TERMINAL
 # kill focused window
 bindsym $mod+c kill
 
+# Start Applications
 # start rofi (a program launcher)
 bindsym $mod+r exec rofi -show run
 
-# Lock the screen
-bindsym $mod+i exec systemctl --user start xautolock.service && pkill -RTMIN+11 i3blocks && xautolock -locknow
+bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# Set shut down, restart and locking features
+bindsym $mod+i exec --no-startup-id i3exit lock, mode "default"
+
+#bindsym $mod+0 mode "$mode_system"
+#set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+#mode "$mode_system" {
+#    bindsym l exec --no-startup-id i3exit lock, mode "default"
+#    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+#    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+#    bindsym e exec --no-startup-id i3exit logout, mode "default"
+#    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+#    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+#    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+#
+#    # exit system mode: "Enter" or "Escape"
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+#
+## Lock screen
+#bindsym $mod+9 exec --no-startup-id blurlock
+
+# Autostart applications
+#
+
+exec --no-startup-id setxkbmap se_modified -option 'lv3:caps_switch'
+exec --no-startup-id xset r rate 230
+exec --no-startup-id xcape -e ISO_Level3_Shift=Escape
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pamac-tray
+exec --no-startup-id clipit
+exec --no-startup-id mons -a
+# exec --no-startup-id blueman-applet
+# exec_always --no-startup-id sbxkb
+exec --no-startup-id xautolock -time 10 -locker blurlock
+
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
+
+################################################################################################
+## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
+################################################################################################
+
+exec --no-startup-id volumeicon
+bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+#exec --no-startup-id pulseaudio
+#exec --no-startup-id pa-applet
+#bindsym $mod+Ctrl+m exec pavucontrol
+
+################################################################################################
 
 # change focus
 bindsym $mod+h focus left
@@ -143,9 +195,34 @@ assign [class="jetbrains-studio"] → $WS3
 assign [instance=$env_irc] → $WS4
 assign [class="Scudcloud"] → $WS4
 
-# Ugly hack for Spotify
-for_window [class="franz"] move to workspace $WS4
-for_window [class="Spotify"] move to workspace $WS5
+# Open specific applications in floating mode
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="calamares"] floating enable border normal
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="fpakman"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro-hello"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [title="About Pale Moon"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Skype"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
 # }
 
 popup_during_fullscreen smart
@@ -187,13 +264,6 @@ bindsym $mod+d mode "resize"
 
 bindsym $mod+b exec $BROWSER; workspace $WS2
 
-# Autostarts {
-#
-exec systemctl --user start xautolock.service
-exec systemctl --user start redshift.service
-exec /home/rawa/.bin/lock.sh -u /home/rawa/dotfiles/laptop/.wallpapers/ dimblur
-# }
-
 # Scratch-pads {
 #
 bindsym mod4+s scratchpad show
@@ -219,49 +289,107 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -9
 # Base16 rawa by David Goransson (www.davidgoransson.com)
 # template by Matt Parnell, @parnmatt
 
-set $base00 #181818
-set $base01 #282828
-set $base02 #383838
-set $base03 #585858
-set $base04 #b8b8b8
-set $base05 #d8d8d8
-set $base06 #e8e8e8
-set $base07 #f8f8f8
-set $base08 #ef5350
-set $base09 #dc322f
-set $base0A #ffee58
-set $base0B #66bb6a
-set $base0C #86C1B9
-set $base0D #42a5f5
-set $base0E #ab47bc
-set $base0F #a16946
 
 # Background Border Text Indicator
-client.focused          $base00 $base0D $base00 $base03
-client.focused_inactive $base00 $base04 $base00 $base01
-client.unfocused        $base00 $base02 $base00 $base01
-client.urgent           $base00 $base08 $base00 $base08
+#client.focused          $base00 $base0D $base00 $base03
+#client.focused_inactive $base00 $base04 $base00 $base01
+#client.unfocused        $base00 $base02 $base00 $base01
+#client.urgent           $base00 $base08 $base00 $base08
+#
+### remember to add the rest of your configuration
+#
+#bar {
+#    ## remember to add your favourite status bar, i.e.,
+#    # status_command i3status
+#    status_command i3blocks
+#	position top
+#	tray_padding 3
+#
+#    font xft:Inconsolata Nerd Font 19
+#
+#    colors {
+#        separator $base03
+#        background $base00
+#        statusline $base04
+#        focused_workspace $base0D $base0D $base00
+#        active_workspace $base00 $base00 $base07
+#        inactive_workspace $base00 $base00 $base04
+#        urgent_workspace $base08 $base08 $base07
+#    }
+#}
 
-## remember to add the rest of your configuration
 
+# Color palette used for the terminal ( ~/.Xresources file )
+# Colors are gathered based on the documentation:
+# https://i3wm.org/docs/userguide.html#xresources
+# Change the variable name at the place you want to match the color
+# of your terminal like this:
+# [example]
+# If you want your bar to have the same background color as your 
+# terminal background change the line 362 from:
+# background #14191D
+# to:
+# background $term_background
+# Same logic applied to everything else.
+set_from_resource $term_background background
+set_from_resource $term_foreground foreground
+set_from_resource $term_color0     color0
+set_from_resource $term_color1     color1
+set_from_resource $term_color2     color2
+set_from_resource $term_color3     color3
+set_from_resource $term_color4     color4
+set_from_resource $term_color5     color5
+set_from_resource $term_color6     color6
+set_from_resource $term_color7     color7
+set_from_resource $term_color8     color8
+set_from_resource $term_color9     color9
+set_from_resource $term_color10    color10
+set_from_resource $term_color11    color11
+set_from_resource $term_color12    color12
+set_from_resource $term_color13    color13
+set_from_resource $term_color14    color14
+set_from_resource $term_color15    color15
+
+# Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-    ## remember to add your favourite status bar, i.e.,
-    # status_command i3status
-    status_command i3blocks
-	position top
-	tray_padding 3
+	  i3bar_command i3bar
+	  status_command i3status
+	  position top
 
-    font xft:Inconsolata Nerd Font 19
+## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+#	tray_output primary
+#	tray_output eDP1
+
+	  bindsym button4 nop
+	  bindsym button5 nop
+#   font xft:URWGothic-Book 11
+#
+    font xft:Inconsolata Nerd Font 12
 
     colors {
-        separator $base03
-        background $base00
-        statusline $base04
-        focused_workspace $base0D $base0D $base00
-        active_workspace $base00 $base00 $base07
-        inactive_workspace $base00 $base00 $base04
-        urgent_workspace $base08 $base08 $base07
+        background #222D31
+        statusline #F9FAF9
+        separator  #454947
+
+#                      border  backgr. text
+        focused_workspace  #F9FAF9 #16a085 #292F34
+        active_workspace   #595B5B #353836 #FDF6E3
+        inactive_workspace #595B5B #222D31 #EEE8D5
+        binding_mode       #16a085 #2C2C2C #F9FAF9
+        urgent_workspace   #16a085 #FDF6E3 #E5201D
     }
 }
 
+# hide/unhide i3status bar
+bindsym $mod+m bar mode toggle
+
+# Theme colors
+# class                   border  backgr. text    indic.   child_border
+  client.focused          #556064 #556064 #80FFF9 #FDF6E3
+  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
+  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
+  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+
+  client.background       #2B2C2B
 
