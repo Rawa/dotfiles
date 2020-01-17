@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-xrandr --output eDP1 --auto --output HDMI1 --scale 1.5x1.5 --right-of eDP1 
