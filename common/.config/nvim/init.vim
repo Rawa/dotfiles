@@ -15,8 +15,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
   let g:fzf_buffers_jump = 1
   nnoremap <silent> <leader>f :Files <C-r>=expand("%:h")<CR>/<CR>
-  nnoremap <C-p> :Files<CR>
-  nnoremap <C-b> :Buffers<CR>
+  nnoremap <leader>p :Files<CR>
+  nnoremap <leader>e :Buffers<CR>
   " Git commit
   let g:fzf_commits_log_options = '--graph --color=always
     \ --format="%C(yellow)%h%C(red)%d%C(reset)
@@ -50,8 +50,8 @@ Plug 'mileszs/ack.vim'
   " Don't jump to the first result automatically
   cnoreabbrev Ack Ack!
   " The silver search for Ack
-  let g:ackprg = 'ag --nogroup --nocolor --column'
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ackprg = 'rg -S --no-heading --vimgrep'
+  let g:ctrlp_user_command = 'rg -F --files --color never --glob %s'
   nnoremap <Leader>a :Ack!<Space>
 
 " Colorscheme
@@ -63,7 +63,7 @@ Plug 'godlygeek/tabular'
 " MD
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_level = 3
-"let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_disabled = 1
 
 " Kotlin
 "Plug 'udalov/kotlin-vim', { 'for' : 'kotlin'}
