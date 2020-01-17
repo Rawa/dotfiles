@@ -82,8 +82,6 @@ if [ -e ~/$LOCAL_CONF ]; then
    source ~/$LOCAL_CONF
 fi
 
-source /usr/share/nvm/init-nvm.sh
-
 # OPAM configuration
 . /home/rawa/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
@@ -91,7 +89,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   startx
 fi
-
-source ~/.config/layout_bounds-completion.bash
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
