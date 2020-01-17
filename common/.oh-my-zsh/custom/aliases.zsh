@@ -10,8 +10,11 @@ alias info='info --vi-keys'
 alias vim='nvim'
 alias vi='nvim'
 alias shutdown='systemctl poweroff'
-alias m='/home/rawa/Work/Autoliv/liv'
 alias evim='vim ~/.config/nvim/init.vim'
+
+alias ag='rg'
 
 # jrnl
 alias jrnle='jrnl -n 1 --edit'
+
+alias uf='find ~/Downloads -type f -name "*.zip"  -print0 | xargs -r -0 ls -1 -t | head -1 | xargs -d "\n" aunpack -X ~/Downloads/'
