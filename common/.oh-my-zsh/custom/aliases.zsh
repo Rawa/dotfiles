@@ -17,4 +17,4 @@ alias ag='rg'
 # jrnl
 alias jrnle='jrnl -n 1 --edit'
 
-alias uf='find ~/Downloads -type f -name "*.zip"  -print0 | xargs -r -0 ls -1 -t | head -1 | xargs -d "\n" aunpack -X ~/Downloads/'
+alias uf='find ~/Downloads -type f -name "*.zip"  -print0 | xargs -r -0 ls -1 -t | head -1 | xargs -d "\n" unzip -d ~/Downloads/'
