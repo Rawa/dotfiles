@@ -60,3 +60,6 @@
 #
 #[gpg]
 #  program = /usr/local/bin/gpg
+[user]
+	email = david.goransson90@gmail.com
+	name = David Göransson

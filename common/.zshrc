@@ -5,7 +5,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell_modified"
+#ZSH_THEME="robbyrussell"
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -58,9 +59,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -83,11 +84,20 @@ if [ -e ~/$LOCAL_CONF ]; then
 fi
 
 # OPAM configuration
-. /home/rawa/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+#. /home/rawa/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  startx
+  sway
+fi
+
+# Fix for tilix
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.oh-my-zsh/themes/robbyrussell_modified.zsh-theme
+
+source ~/.oh-my-zsh/custom/aliases.zsh
+
