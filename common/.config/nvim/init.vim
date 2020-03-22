@@ -72,7 +72,7 @@ call plug#end()
 
 colorscheme gruvbox
 
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
 
 set expandtab	    " tab by spaces
 set autoindent    " always set auto indenting on
