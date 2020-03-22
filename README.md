@@ -1,5 +1,4 @@
-# dotfiles
-My setup of dotfiles for my computers.
+# dotfiles 
 
 ## Targets
 - `common` - Common files for all setups
