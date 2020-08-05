@@ -101,3 +101,5 @@ source ~/.oh-my-zsh/themes/robbyrussell_modified.zsh-theme
 
 source ~/.oh-my-zsh/custom/aliases.zsh
 
+export NVM_DIR="/Users/rawa/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
