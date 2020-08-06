@@ -1,17 +1,20 @@
 alias g='git'
 
-alias ealiases='vim ~/.oh-my-zsh/custom/aliases.zsh'
-alias ei3='vim ~/.config/i3/config'
-alias esway='vim ~/.config/sway/config'
+alias ealiases='$EDITOR ~/.oh-my-zsh/custom/aliases.zsh'
+alias ei3='$EDITOR ~/.config/i3/config'
+alias esway='$EDITOR ~/.config/sway/config'
+alias ezsh='$EDITOR ~/.zshrc'
+alias evim='$EDITOR ~/.config/nvim/init.vim'
+alias etmux='$EDITOR ~/.tmux.conf'
+
 alias diff='diff --color=always'
 alias cl='clear'
 alias saywhat='whatis "$(fc -nl -1 | awk "{print \$NF}")"'
 alias info='info --vi-keys'
-alias vim='nvim'
-alias vi='nvim'
-alias v='vim'
+alias vim='$EDITOR'
+alias vi='$EDITOR'
+alias v='$EDITOR'
 alias shutdown='systemctl poweroff'
-alias evim='vim ~/.config/nvim/init.vim'
 
 alias ag='rg'
 
