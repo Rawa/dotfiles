@@ -65,6 +65,9 @@ Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_level = 3
 let g:vim_markdown_folding_disabled = 1
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 " Kotlin
 "Plug 'udalov/kotlin-vim', { 'for' : 'kotlin'}
 
