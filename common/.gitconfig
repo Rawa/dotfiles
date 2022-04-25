@@ -4,7 +4,7 @@
   path = ~/.gitconfig.aliases
 
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/rawa/.gitignore
   editor = nvim
 
 [push]
@@ -68,3 +68,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[init]
+	defaultBranch = main
