@@ -1,9 +1,10 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after runtimepath+=./nvim runtimepath+=~/dotfiles/common/.config/nvim
+set runtimepath^=~/.vim runtimepath+=~/.vim/after runtimepath+=./nvim runtimepath+=~/.config/nvim
+let &packpath = &runtimepath
 
-augroup reload_vimrc
-    au!
-    au BufWritePost *.vim *.lua so $VIMRC
-augroup END
+"augroup reload_vimrc
+"    au!
+"    au BufWritePost *.vim,*.lua so $VIMRC
+"augroup END
 
 let mapleader = ","
 
@@ -15,6 +16,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>m :NERDTreeFind<CR>
+
 " Nerdtree config for wildignore
 let NERDTreeRespectWildIgnore=1
 
@@ -23,7 +25,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
 nnoremap <silent> <leader>gl :Flog<CR>
 
-Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-surround'
 
 Plug 'easymotion/vim-easymotion'
 
@@ -51,15 +53,6 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim'
 " Kotlin
 "Plug 'udalov/kotlin-vim', { 'for' : 'kotlin'}
 
-" nvim-cmp autocompletion
-Plug 'hrsh7th/nvim-cmp'
-"Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-"Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-Plug 'octaltree/cmp-look'
-Plug 'hrsh7th/cmp-nvim-lua'
-
 " dictionary
 Plug 'skywind3000/vim-quickui'
 Plug 'xfyuan/vim-mac-dictionary'
@@ -67,7 +60,7 @@ Plug 'xfyuan/vim-mac-dictionary'
 
 call plug#end()
 
-colorscheme gruvbox
+"colorscheme gruvbox
 
 "set clipboard=unnamedplus
 
@@ -94,4 +87,4 @@ nnoremap <leader>fk <cmd>Telescope keymaps<cr>
 
 set completeopt=menu,menuone,noselect
 
-lua require('plugins.cmp')
+lua require("init")
