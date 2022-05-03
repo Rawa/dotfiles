@@ -16,6 +16,7 @@ local download_packer = function()
     string.format("git clone %s %s", "https://github.com/wbthomason/packer.nvim", directory .. "/packer.nvim")
   )
 
+  print("")
   print("Downloading packer.nvim...")
   print(out)
   print("You'll need to restart now and run :PackerInstall")
