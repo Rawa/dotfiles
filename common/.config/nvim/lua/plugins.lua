@@ -15,7 +15,12 @@ return packer.startup(function()
 
   use 'tpope/vim-surround'
 
-  use 'scrooloose/nerdcommenter'
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
 
   use {
     'scrooloose/nerdtree',
@@ -27,11 +32,21 @@ return packer.startup(function()
     'hrsh7th/nvim-cmp',
     config = [[require("config.cmp").setup()]],
   }
+
+  use {
+    'L3MON4D3/LuaSnip'
+  }
+
   use {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'octaltree/cmp-look',
     'hrsh7th/cmp-nvim-lua',
+    'hrsh7th/cmp-nvim-lsp'
+  }
+
+  use {
+    'saadparwaiz1/cmp_luasnip'
   }
 
     -- telescope
@@ -39,7 +54,6 @@ return packer.startup(function()
     {
       'nvim-telescope/telescope.nvim',
       requires = {
-        'nvim-lua/popup.nvim',
         'nvim-lua/plenary.nvim',
         'vim-telescope/telescope-frecency.nvim',
         'nvim-telescope/telescope-fzf-native.nvim'
@@ -55,6 +69,18 @@ return packer.startup(function()
       run = 'make',
     },
     'crispgm/telescope-heading.nvim',
+  }
+
+
+  -- lsp
+  use {
+    'neovim/nvim-lspconfig',
+    config = [[require("config.lsp").setup()]],
+    require = {
+      'nvim-lua/plenary.nvim',
+      'kevinhwang91/nvim-bqf', -- better quickfix
+      'ray-x/lsp_signature.nvim',
+    }
   }
 
   use 'easymotion/vim-easymotion'
@@ -82,8 +108,6 @@ return packer.startup(function()
     end
   }
 end)
---  use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
-
 
 --" Git Flog
 --Plug 'tpope/vim-fugitive'
