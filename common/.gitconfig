@@ -61,8 +61,9 @@
 #[gpg]
 #  program = /usr/local/bin/gpg
 [user]
-	email = david.goransson90@gmail.com
+	email = david.goransson@mullvad.net
 	name = David Göransson
+  signingkey = F0D88435B0ECCCBC1621EF0F9C35DD4E5E6D6CBE
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

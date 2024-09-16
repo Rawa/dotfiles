@@ -23,3 +23,7 @@ alias jrnle='jrnl -n 1 --edit'
 alias jrnls='jrnl -n 5'
 
 alias uf='find ~/Downloads -type f -name "*.zip"  -print0 | xargs -r -0 ls -1 -t | head -1 | xargs -d "\n" unzip -d ~/Downloads/'
+
+# sed override
+alias sed='gsed'
+#

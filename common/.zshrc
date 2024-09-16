@@ -103,3 +103,6 @@ source ~/.oh-my-zsh/custom/aliases.zsh
 
 export NVM_DIR="/Users/rawa/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+eval "$(zoxide init zsh)"
+eval "$(ssh-agent -s)"

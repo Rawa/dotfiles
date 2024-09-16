@@ -82,3 +82,6 @@
 
   # misc
   count = shortlog -sn
+
+  grd = log --graph --pretty=format:'%Cred%h%Creset - %Cblue%G?%Creset %s %C(yellow)%d%Cgreen(%ci) %C(bold blue)<%an>'
+  fap = fetch --all --prune
