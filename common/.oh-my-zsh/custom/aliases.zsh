@@ -1,6 +1,7 @@
 alias g='git'
 
 alias ealiases='$EDITOR ~/.oh-my-zsh/custom/aliases.zsh'
+alias eghostty='$EDITOR ~/Library/Application\ Support/com.mitchellh.ghostty/config'
 alias ei3='$EDITOR ~/.config/i3/config'
 alias esway='$EDITOR ~/.config/sway/config'
 alias ezsh='$EDITOR ~/.zshrc'
@@ -16,6 +17,7 @@ alias vi='$EDITOR'
 alias v='$EDITOR'
 alias shutdown='systemctl poweroff'
 
+#unalias fd
 alias ag='rg'
 
 # jrnl
