@@ -6,6 +6,8 @@
 [core]
 	excludesfile = /Users/rawa/.gitignore
   editor = nvim
+	pager = delta
+	autocrlf = input
 
 [push]
   default = current
@@ -71,3 +73,9 @@
 	required = true
 [init]
 	defaultBranch = main
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictStyle = zdiff3
