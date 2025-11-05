@@ -92,11 +92,6 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   sway
 fi
 
-# Fix for tilix
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.oh-my-zsh/custom/aliases.zsh
